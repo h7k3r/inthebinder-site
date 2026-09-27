@@ -103,7 +103,16 @@
   footer .row { display:flex; flex-wrap:wrap; gap:18px; justify-content:space-between; }
   footer a { color:var(--dim); }
 
+  .shot { width:100%; max-width:300px; aspect-ratio:540/1320; border-radius:26px; border:1px solid #5a2a9a; box-shadow:0 0 50px rgba(255,90,217,.22),0 20px 40px rgba(0,0,0,.6); display:block; object-fit:cover; background:var(--panel); }
+  .hero .shot { margin:0 auto; transform:rotate(2deg); }
+  .gallery { display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding:6px 2px 18px; }
+  .gallery figure { margin:0; flex:0 0 220px; scroll-snap-align:start; }
+  .gallery figcaption { color:var(--dim); font-size:.85rem; margin-top:10px; text-align:center; }
+  .excl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  .excl .feat { border-color:#5a2a9a; background:linear-gradient(160deg,#2a0763,#1a0838); }
+  .tag { display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.08em; padding:3px 9px; border-radius:99px; border:1px solid var(--line); color:var(--gold2); margin-bottom:10px; }
   @media (max-width: 820px) {
+    .excl { grid-template-columns:1fr; }
     .hero { grid-template-columns:1fr; padding-top:16px; }
     .grid { grid-template-columns:1fr; }
     .privacy { grid-template-columns:1fr; }
@@ -116,9 +125,10 @@
   <header>
     <a class="brand" href="/"><img src="/logo.png" alt="In the Binder" height="64" style="display:block"></a>
     <nav>
+      <a href="#screens">Screens</a>
       <a href="#features">Features</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#beta">Join the beta</a>
+      <a href="#security">Security</a>
+      <a href="/beta/">Join the beta</a>
     </nav>
   </header>
 
@@ -128,28 +138,45 @@
       <h1>Your whole collection, <span class="holo">in your pocket.</span></h1>
       <p class="lead">Point your camera at a card and In the Binder knows which one it is. It files the card into its set's binder and shows what it's worth. Page by page, you watch every set fill up.</p>
       <div class="cta">
-        <a class="btn primary" href="#beta">Join the Android beta</a>
-        <span class="btn" aria-disabled="true">Google Play <span class="soon">SOON</span></span>
+        <a class="btn primary" href="/beta/">Join the Android beta</a>
+        <span class="btn" aria-disabled="true">Google Play <span class="soon">BETA</span></span>
         <span class="btn" aria-disabled="true">App Store <span class="soon">LATER</span></span>
       </div>
       <p class="note">Android first. iPhone to follow.</p>
     </div>
 
-    <div class="phone" aria-hidden="true">
-      <div class="screen">
-        <div class="bar"><b>Surging Sparks</b><span style="color:var(--gold)">Page 3 / 28</span></div>
-        <div class="book"><div class="page">
-          <div class="card own"></div><div class="card own"></div><div class="card"></div>
-          <div class="card own"></div><div class="card"></div><div class="card own"></div>
-          <div class="card own"></div><div class="card own"></div><div class="card"></div>
-        </div></div>
-        <div class="pager"><span>‹ Prev</span><span>3 of 28</span><span>Next ›</span></div>
-        <div class="navbar"><span>Home</span><span>Binders</span><span class="scan">+</span><span>Portfolio</span><span>Back</span></div>
-      </div>
-    </div>
+    <img class="shot" src="/shots/home.webp" width="540" height="1320" alt="In the Binder home screen showing the collector's sets with progress" fetchpriority="high">
   </div>
 </div>
 <div class="floor" aria-hidden="true"></div>
+
+<section id="screens">
+  <div class="wrap">
+    <h2>See it in action</h2>
+    <p class="sub">Real screens from the Android beta. Swipe for more.</p>
+    <div class="gallery">
+      <figure><img class="shot" src="/shots/binder.webp" width="540" height="1320" loading="lazy" alt="A set shown as binder pages, nine pockets a page"><figcaption>Every set as a real binder</figcaption></figure>
+      <figure><img class="shot" src="/shots/scan-match.webp" width="540" height="1320" loading="lazy" alt="Scanner matching a photographed card to its printing"><figcaption>Scan: your photo next to the match</figcaption></figure>
+      <figure><img class="shot" src="/shots/scan-slab.webp" width="540" height="1320" loading="lazy" alt="A PSA graded slab recognised with grader and grade"><figcaption>Graded slabs, PSA to CGC</figcaption></figure>
+      <figure><img class="shot" src="/shots/collection.webp" width="540" height="1320" loading="lazy" alt="Collection shelf of binders with language tabs"><figcaption>Binders per language</figcaption></figure>
+      <figure><img class="shot" src="/shots/carbon.webp" width="540" height="1320" loading="lazy" alt="Home screen in the carbon fibre theme"><figcaption>Themes: carbon, underwater, forest…</figcaption></figure>
+      <figure><img class="shot" src="/shots/settings.webp" width="540" height="1320" loading="lazy" alt="Theme picker in settings"><figcaption>Make it yours</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="exclusive">
+  <div class="wrap">
+    <h2>Things other card apps don't do</h2>
+    <p class="sub">Built by a collector who wanted more than a list.</p>
+    <div class="excl">
+      <div class="feat"><span class="tag">GRADING</span><h3>AI centring check before you submit</h3><p>Hold a card under the camera and the borders are measured automatically. You see the best grade centring alone allows at PSA, BGS and CGC, before you pay for grading. A manual mode lets you nudge every edge by 0.1 mm.</p></div>
+      <div class="feat"><span class="tag">SLABS</span><h3>Tap a slab, done</h3><p>Hold an NFC-chipped slab to the back of your phone and the certificate is read instantly, no buttons. No chip? Point the camera at the label and the cert number is read for you.</p></div>
+      <div class="feat"><span class="tag">8 LANGUAGES</span><h3>Japanese, Korean and Chinese sets included</h3><p>Separate binders for English, French, Italian, Spanish, German, Japanese, Korean and Chinese printings, with thousands of Asian cards recognised by the scanner.</p></div>
+      <div class="feat"><span class="tag">SWITCHING</span><h3>Bring your collection with you</h3><p>Import your whole PriceCharting collection in one go, with nothing lost: anything that can't be matched is kept with its value. Back up to a single file anytime.</p></div>
+    </div>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
@@ -161,21 +188,25 @@
       <div class="feat"><div class="ico">↗</div><h3>Know what it's worth</h3><p>Market prices for each printing, price history over time, and your whole portfolio's value at a glance.</p></div>
       <div class="feat"><div class="ico">▣</div><h3>Graded slabs</h3><p>Track PSA, BGS, CGC, ACE, AURA and more. Read the certificate from the label or tap an NFC-chipped slab.</p></div>
       <div class="feat"><div class="ico">⌕</div><h3>Search like it's printed</h3><p>Type "070/084" or a name with a typo, and it still finds the card.</p></div>
-      <div class="feat"><div class="ico">❖</div><h3>Six languages</h3><p>English, French, Italian, Japanese, Korean and Chinese cards, plus sealed product by barcode.</p></div>
+      <div class="feat"><div class="ico">❖</div><h3>Sealed product too</h3><p>Booster boxes, ETBs and tins by barcode, alongside your cards and slabs.</p></div>
     </div>
   </div>
 </section>
 
-<section id="privacy">
+<section id="security">
   <div class="wrap privacy">
     <div>
-      <h2>Your collection stays yours</h2>
-      <p class="sub">There's no account to create and no cloud holding your list. Everything lives on your phone.</p>
+      <h2>Secure by design</h2>
+      <p class="sub">A collection can be worth thousands. In the Binder never asks you to hand it to a server: there's no account to hack and no cloud database to leak.</p>
     </div>
     <ul class="check">
       <li>No sign-up, no login, no password to leak</li>
-      <li>Card recognition runs on the device; photos are never uploaded</li>
-      <li>Export your collection as a spreadsheet whenever you like</li>
+      <li>Your collection is stored only on your phone and works fully offline</li>
+      <li>Card recognition runs on the device; your photos are never uploaded</li>
+      <li>Only the permissions it needs: camera to scan, NFC to read slabs</li>
+      <li>Distributed through Google Play, signed and checked by Google</li>
+      <li>Everything online is encrypted (HTTPS only, HSTS)</li>
+      <li>Your data, your file: export or back up whenever you like</li>
       <li>Read the full <a href="/privacy.html">privacy policy</a></li>
     </ul>
   </div>
@@ -185,8 +216,8 @@
   <div class="wrap">
     <div class="beta">
       <h2>Be one of the first testers</h2>
-      <p>In the Binder is in its final testing on Android. Email us and we'll add you to the Google Play beta. It's free, and your feedback shapes the launch.</p>
-      <a class="btn primary" href="mailto:support@inthebinder.com?subject=In%20the%20Binder%20beta&body=Hi%2C%20I%27d%20like%20to%20test%20In%20the%20Binder.%20My%20Google%20Play%20email%20is%3A%20">Email me the beta invite</a>
+      <p>In the Binder is in its final testing on Android. It's free, it takes a minute to join, and your feedback shapes the launch.</p>
+      <a class="btn primary" href="/beta/">Join the beta</a>
     </div>
   </div>
 </section>
