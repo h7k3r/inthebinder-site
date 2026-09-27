@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /c/
+Disallow: /beta/
 Sitemap: https://inthebinder.com/sitemap.xml
