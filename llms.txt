@@ -1,0 +1,15 @@
+# In the Binder
+
+> In the Binder is a free Android app for trading card collectors, currently in beta on Google Play. It scans cards with the phone camera, files them into binders set by set, checks centring before grading (PSA, BGS, CGC limits), reads graded slabs and shows what a collection is worth. It works offline.
+
+- Platform: Android (Google Play beta). iPhone version planned.
+- Price: free.
+- Card languages: English, French, Italian, Spanish, German, Japanese, Korean, Chinese.
+- Privacy: card recognition runs on the phone; photos are not uploaded.
+- Independent app, not affiliated with Nintendo, Creatures, GAME FREAK, The Pokémon Company or Wizards of the Coast.
+- Contact: support@inthebinder.com
+
+## Pages
+
+- [Home](https://inthebinder.com/): features, screenshots, security and FAQ
+- [Privacy policy](https://inthebinder.com/privacy.html)
