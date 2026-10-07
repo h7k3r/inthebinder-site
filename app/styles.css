@@ -211,3 +211,6 @@ main{min-height:calc(100vh - 60px)}
   .sort{margin-left:0}
 }
 @media (max-width:520px){ .side{grid-template-columns:1fr} .big{font-size:26px} }
+
+/* Other games' set tiles: the set code where Pokémon shows its logo. */
+.settile .logo span.code { font-family: "Syncopate", "Segoe UI", sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .04em; color: var(--gold2, #3fe6ff); }
