@@ -25,7 +25,7 @@
 <main>
 <a href="/"><img src="/logo.png" alt="In the Binder" height="48" style="display:block;margin-bottom:18px"></a>
 <h1>In the Binder Privacy Policy</h1>
-<p class="meta">Last updated: 1 October 2026</p>
+<p class="meta">Last updated: 7 October 2026</p>
 
 <div class="box">
 <p><strong>The short version:</strong> your collection lives on your phone. In the Binder has no accounts and no servers that store your data. We never see what you own. The only third party that receives data about your device is Google AdMob, which shows the banner ad.</p>
@@ -39,6 +39,7 @@
   <li><strong>Your collection:</strong> the cards, sealed products and graded slabs you add, with quantities, conditions, grades and certificate numbers. This is stored only in the app's own database on your device. Android backups of this database are switched off, so it isn't copied off the device.</li>
   <li><strong>Settings, theme and visit streak:</strong> also stored only on your device.</li>
   <li><strong>Camera and photos:</strong> the camera is used only while the scanner is open, to recognise cards on your phone itself. Card recognition runs entirely on the device. Photos are never uploaded. Photos you choose to import are read on the device in the same way.</li>
+  <li><strong>Scanner memory:</strong> when you confirm a scanned card, the scanner keeps a small numeric fingerprint of that photo (not the photo itself) on your phone, so it recognises your cards faster next time. It never leaves your device, and you can erase it in Settings, under Scanner memory.</li>
   <li><strong>NFC:</strong> used only when you tap a graded slab's chip, to read its certificate number.</li>
 </ul>
 <p>Uninstalling the app deletes all of this. You can export your collection at any time from Settings.</p>
@@ -46,6 +47,7 @@
 <h2>What leaves your phone</h2>
 <ul>
   <li><strong>Card prices and images:</strong> to show prices and pictures, the app downloads public card data from the Pokémon TCG API (pokemontcg.io) and card images from its image servers. These requests ask for public set and card information. They don't include your collection or anything that identifies you, beyond the IP address every internet request carries.</li>
+  <li><strong>Other card games (One Piece, Lorcana, Dragon Ball, Magic, Yu-Gi-Oh!):</strong> the first time you open one of these games, the app downloads its public card list and scanner reference data from our data repository on GitHub (github.com and raw.githubusercontent.com), and then checks for updates and the day's market prices about once a day. That data is built from TCGplayer's public product information. Card pictures are loaded from TCGplayer's image server (tcgplayer-cdn.tcgplayer.com). These requests ask only for public card information and carry nothing about you or your collection, beyond the IP address every internet request carries.</li>
   <li><strong>Exchange rates:</strong> to show prices in your currency, the app fetches the European Central Bank's daily reference rates from Frankfurter (frankfurter.app) at most once a day. The request asks only for the rates and carries nothing about you or your collection, beyond the IP address every internet request carries.</li>
   <li><strong>New card data:</strong> once a day the app checks this website for a newer card list and scanner index, and downloads it if there is one. The request carries nothing about you or your collection, beyond the IP address every internet request carries.</li>
   <li><strong>Jev sorting (optional, off unless you turn it on):</strong> if you add your own TypeSafe AI key in Settings and tap "Sort held PriceCharting items", the names of those items and the candidate card names are sent to TypeSafe AI (api.typesafe.ai) to pick the matching card. Nothing else is sent, and nothing is sent unless you add a key and tap the button. Your key is stored only on your phone.</li>

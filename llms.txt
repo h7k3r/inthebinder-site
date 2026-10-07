@@ -4,9 +4,11 @@
 
 - Platform: Android (Google Play beta). iPhone version planned. A free web version at https://inthebinder.com/app/ works on any computer or phone: it opens the app's backup file (collection, value over time, grading picks, centring on a photo) and keeps it in the browser.
 - Price: free.
-- Card languages: English, French, Italian, Spanish, German, Japanese, Korean, Chinese.
+- Card games: Pokémon, plus the English editions of One Piece, Disney Lorcana, Dragon Ball Super Fusion World, Magic: The Gathering and Yu-Gi-Oh!. Each game has its own binders, slabs and sealed product; a game's card list downloads the first time it is opened.
+- Pokémon card languages: English, French, Italian, Spanish, German, Japanese, Korean, Chinese.
+- Scanner: recognises cards by their picture and by printed codes (for example OP01-003, LOB-EN001), and learns from the scans a user confirms. Runs on the phone.
 - Privacy: card recognition runs on the phone; photos are not uploaded.
-- Independent app, not affiliated with Nintendo, Creatures, GAME FREAK, The Pokémon Company or Wizards of the Coast.
+- Independent app, not affiliated with Nintendo, Creatures, GAME FREAK, The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast or Konami.
 - Contact: support@inthebinder.com
 
 ## Pages

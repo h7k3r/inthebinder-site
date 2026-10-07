@@ -60,7 +60,7 @@
     This collection lives inside the link itself. Nothing is stored on our servers, and only people
     who have the link can see it. Prices are TCGplayer market prices in US dollars, where available.
   </p>
-  <footer>In the Binder is an independent app and is not affiliated with Nintendo, Creatures Inc., GAME FREAK inc. or The Pokémon Company.</footer>
+  <footer>In the Binder is an independent app and is not affiliated with Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast or Konami.</footer>
 </div>
 
 <script src="share.js"></script>
@@ -78,8 +78,24 @@
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const money = (v) => '$' + (v >= 100 ? v.toFixed(0) : v.toFixed(2));
 
+  // Other games' ids carry the game: set 'op~3188', card 'op~712666' (the
+  // TCGplayer product id). Their pictures come from TCGplayer's image server
+  // and today's prices from the app's data repository.
+  const GAMES = { op: 'One Piece', lorcana: 'Disney Lorcana', dbsfw: 'Dragon Ball Super Fusion World', mtg: 'Magic: The Gathering', ygo: 'Yu-Gi-Oh!' };
+  const gameOf = (id) => { const i = String(id).indexOf('~'); const k = i > 0 ? String(id).slice(0, i) : ''; return GAMES[k] ? k : null; };
+  const productOf = (id) => String(id).split('~')[1];
+  const gamePriceCache = new Map();
+  function loadGamePrices(game) {
+    if (!gamePriceCache.has(game)) {
+      gamePriceCache.set(game, fetch('https://raw.githubusercontent.com/h7k3r/inthebinder-data/data/' + game + '-prices.json')
+        .then((r) => (r.ok ? r.json() : null)).then((j) => (j && j.prices) || {}).catch(() => ({})));
+    }
+    return gamePriceCache.get(game);
+  }
+
   function loadSet(setId) {
     if (setCache.has(setId)) return setCache.get(setId);
+    if (gameOf(setId)) { const empty = Promise.resolve(new Map()); setCache.set(setId, empty); return empty; }
     const p = (async () => {
       const map = new Map();
       for (let page = 1; page < 10; page++) {
@@ -121,7 +137,14 @@
       while (next < sets.length) { const i = next++; maps[i] = await loadSet(sets[i]); }
     }));
     const bySet = new Map(sets.map((s, i) => [s, maps[i]]));
+    const gamePrices = {};
+    for (const g of new Set(rows.map((r) => gameOf(r.cardId)).filter(Boolean))) gamePrices[g] = await loadGamePrices(g);
     return rows.map((r) => {
+      const g = gameOf(r.cardId);
+      if (g) {
+        const p = gamePrices[g][productOf(r.cardId) + '|' + (r.variant || 'normal')];
+        return { ...r, card: null, game: g, price: p != null ? p : null };
+      }
       const card = bySet.get(r.setId) && bySet.get(r.setId).get(r.cardId);
       return { ...r, card, price: priceOf(card, r.variant) };
     });
@@ -130,15 +153,17 @@
   function cardTile(r, badge) {
     // Without details, the image server still has the picture at a known address.
     const num = r.cardId.startsWith(r.setId + '-') ? r.cardId.slice(r.setId.length + 1) : '';
-    const src = r.card && r.card.images ? r.card.images.small : (num ? `https://images.pokemontcg.io/${encodeURIComponent(r.setId)}/${encodeURIComponent(num)}.png` : '');
-    const img = src ? `<img loading="lazy" src="${esc(src)}" alt="${esc(r.card ? r.card.name : r.cardId)}" onerror="this.outerHTML='<div class=ph>${esc(r.cardId)}</div>'">`
+    const src = r.game ? `https://tcgplayer-cdn.tcgplayer.com/product/${encodeURIComponent(productOf(r.cardId))}_400w.jpg`
+      : r.card && r.card.images ? r.card.images.small : (num ? `https://images.pokemontcg.io/${encodeURIComponent(r.setId)}/${encodeURIComponent(num)}.png` : '');
+    const label = r.game ? GAMES[r.game] + ' card' : (r.card ? r.card.name : r.cardId);
+    const img = src ? `<img loading="lazy" src="${esc(src)}" alt="${esc(label)}" onerror="this.outerHTML='<div class=ph>${esc(r.cardId)}</div>'">`
       : `<div class="ph">${esc(r.cardId)}</div>`;
     const variant = r.variant && r.variant !== 'normal' ? ` · ${esc(r.variant.replace(/([A-Z])/g, ' $1').toLowerCase())}` : '';
     return `<div class="card">${img}
       ${r.quantity > 1 ? `<span class="qty">×${r.quantity}</span>` : ''}
       ${badge ? `<span class="who" style="color:${badge[1]}">${esc(badge[0])}</span>` : ''}
-      <div class="name" title="${esc(r.card ? r.card.name : r.cardId)}">${esc(r.card ? r.card.name : r.cardId)}</div>
-      <div class="meta"><span>#${esc(r.card ? r.card.number : num)}${variant}</span><b>${r.price != null ? money(r.price) : ''}</b></div>
+      <div class="name" title="${esc(label)}">${esc(label)}</div>
+      <div class="meta"><span>${r.game ? '' : '#' + esc(r.card ? r.card.number : num)}${variant}</span><b>${r.price != null ? money(r.price) : ''}</b></div>
     </div>`;
   }
 
@@ -162,7 +187,7 @@
       cards.sort((a, b) => (parseInt(a.card && a.card.number, 10) || 0) - (parseInt(b.card && b.card.number, 10) || 0));
       return `<section class="set"><div class="sethead">
           ${set && set.images ? `<img src="${esc(set.images.logo)}" alt="">` : ''}
-          <h2>${esc(set ? set.name : setId)}</h2>
+          <h2>${esc(set ? set.name : gameOf(setId) ? GAMES[gameOf(setId)] : setId)}</h2>
           <span>${cards.length}${set ? ' of ' + set.printedTotal : ''}${value ? ' · ' + money(value) : ''}</span>
         </div><div class="grid">${cards.map((r) => cardTile(r, badgeOf && badgeOf(r))).join('')}</div></section>`;
     }).join('');
