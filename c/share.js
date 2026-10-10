@@ -58,6 +58,15 @@ function encodeCollection(rows) {
   return parts.join('~');
 }
 
+/** decodeURIComponent that returns null instead of throwing on a broken '%'. */
+function unesc(s) {
+  try { return decodeURIComponent(s); } catch (e) { return null; }
+}
+// A link is text anyone can write, so nothing in it is trusted: broken
+// escapes skip that entry, ids are length-capped, quantities are clamped.
+const MAX_ID = 80;
+const MAX_QTY = 9999;
+
 /** @returns [{ setId, cardId, variant, quantity }] */
 function decodeCollection(payload) {
   const out = [];
@@ -65,21 +74,26 @@ function decodeCollection(payload) {
   for (const part of String(payload).split('~')) {
     const colon = part.indexOf(':');
     if (colon < 1) continue;
-    const setId = decodeURIComponent(part.slice(0, colon));
+    const setId = unesc(part.slice(0, colon));
+    if (!setId || setId.length > MAX_ID) continue;
     for (const raw of part.slice(colon + 1).split(',')) {
       if (!raw) continue;
       let e = raw;
       let quantity = 1;
       const star = e.lastIndexOf('*');
-      if (star > 0) { quantity = parseInt(e.slice(star + 1), 10) || 1; e = e.slice(0, star); }
+      if (star > 0) { quantity = Math.min(MAX_QTY, Math.max(1, parseInt(e.slice(star + 1), 10) || 1)); e = e.slice(0, star); }
       let variant = 'normal';
       const dot = e.lastIndexOf('.');
       if (dot > 0) {
-        const code = decodeURIComponent(e.slice(dot + 1));
+        const code = unesc(e.slice(dot + 1));
+        if (code == null || code.length > MAX_ID) continue;
         variant = C2V[code] || code;
         e = e.slice(0, dot);
       }
-      const cardId = e.startsWith('!') ? decodeURIComponent(e.slice(1)) : `${setId}-${decodeURIComponent(e)}`;
+      const rest = unesc(e.startsWith('!') ? e.slice(1) : e);
+      if (rest == null) continue;
+      const cardId = e.startsWith('!') ? rest : `${setId}-${rest}`;
+      if (!cardId || cardId.length > MAX_ID) continue;
       out.push({ setId, cardId, variant, quantity });
     }
   }
@@ -101,7 +115,7 @@ function parseShareLink(text) {
   const m = s.match(/#?v1\/([^/\s]*)\/(\S*)/);
   if (!m) return null;
   let title = '';
-  try { title = decodeURIComponent(m[1]); } catch (e) { title = ''; }
+  title = (unesc(m[1]) || '').slice(0, 100);
   const rows = decodeCollection(m[2]);
   return rows.length ? { title, rows } : null;
 }
