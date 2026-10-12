@@ -1,0 +1,16 @@
+{
+  "name": "In the Binder",
+  "short_name": "Binder",
+  "description": "Your trading card collection, its value and your grading picks.",
+  "id": "/app/",
+  "start_url": "/app/#/collection",
+  "scope": "/app/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0D0322",
+  "theme_color": "#0D0322",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
