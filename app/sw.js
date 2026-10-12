@@ -8,13 +8,14 @@
  *   background for next time.
  * - Other sites (card pictures, prices, other games' catalogues) are left
  *   alone: the browser's own cache handles them.
- * Each build has its own cache (mv5mv3nl); older ones are deleted.
+ * Each build has its own cache (mv5okyqp); older ones are deleted.
  */
-const CACHE = 'itb-app-mv5mv3nl';
+const CACHE = 'itb-app-mv5okyqp';
+const SCANNER = 'itb-scanner';
 const CORE = [
   './',
-  './app.js?v=mv5mv3nl',
-  './styles.css?v=mv5mv3nl',
+  './app.js?v=mv5okyqp',
+  './styles.css?v=mv5okyqp',
   './manifest.webmanifest',
   './data/en.json',
   './data/meta.json',
@@ -43,6 +44,33 @@ self.addEventListener('fetch', (e) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
+
+  // The picture scanner (~55 MB): kept in its own cache that app updates do
+  // not clear, served from there without asking the network again. Its
+  // addresses change when it changes (models/*?v=, ort-<version>/); an older
+  // copy of the same file is dropped when the new one is saved.
+  // models/manifest.json says which version is current: network first.
+  if (url.pathname.endsWith('/models/manifest.json')) {
+    e.respondWith(fetch(req).catch(async () => (await caches.match(req, { ignoreSearch: true })) || Response.error()));
+    return;
+  }
+  if (url.pathname.includes('/models/') || /\/ort-[^/]+\//.test(url.pathname)) {
+    e.respondWith((async () => {
+      const cache = await caches.open(SCANNER);
+      const hit = await cache.match(req);
+      if (hit) return hit;
+      const r = await fetch(req);
+      if (r.ok) {
+        for (const old of await cache.keys()) {
+          const o = new URL(old.url);
+          if (o.pathname === url.pathname && o.search !== url.search) await cache.delete(old);
+        }
+        e.waitUntil(cache.put(req, r.clone()));
+      }
+      return r;
+    })());
+    return;
+  }
 
   if (req.mode === 'navigate') {
     e.respondWith((async () => {

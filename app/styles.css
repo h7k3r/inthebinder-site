@@ -64,6 +64,32 @@ main{padding-bottom:env(safe-area-inset-bottom)}
 .welcome .ghost.wide{display:flex;justify-content:center;text-align:center;width:100%;padding:13px;margin-top:10px;border-radius:999px}
 .welcome .keepcopy{margin-top:18px}
 
+/* scan */
+.scan h1{margin-top:6px}
+.scanbox{margin:18px 0;padding:18px;border-radius:16px;border:1px solid var(--edge);background:var(--panel)}
+.scanbox .btn.big,.scanbtns .big{font-size:16px;font-weight:800;padding:14px 18px}
+.bar.big{height:10px;border-radius:5px;margin:10px 0 6px}
+.scanbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.scanbtns .ghost.big{border-radius:999px}
+.tips{padding-left:18px;margin:6px 0 0}.tips li{margin:3px 0}
+.scan .loading.small{min-height:0;padding:14px 0;display:flex;gap:10px;align-items:center;justify-content:center}
+.scanphoto{margin:14px 0;display:flex;flex-direction:column;gap:10px}
+.scanrow{display:grid;grid-template-columns:64px 72px 1fr;gap:10px;align-items:start;padding:10px;border-radius:14px;
+  background:var(--panel);border:1px solid var(--edge)}
+.scanrow.check{border-color:#e0a24a}
+.scanrow .thumb{width:64px;aspect-ratio:224/312;object-fit:cover;border-radius:6px;opacity:.9}
+.scanrow .match{width:72px;border-radius:6px;cursor:pointer}
+.scaninfo{display:flex;flex-direction:column;gap:3px;min-width:0}
+.scaninfo b{overflow-wrap:anywhere}
+.scaninfo .chips{margin-top:4px}
+.scanadd{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.warn{color:#e0a24a}
+.alts{grid-column:1/-1;display:flex;gap:8px;align-items:flex-end;overflow-x:auto;padding-top:4px;border-top:1px solid var(--edge)}
+.alts>span{flex:none;align-self:center}
+.alt{flex:none;width:68px;display:flex;flex-direction:column;gap:2px;text-align:center}
+.alt img{width:68px;border-radius:5px}
+.alt span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dim)}
+
 /* layout */
 .withside{display:flex;align-items:flex-start}
 .side{width:300px;flex:none;padding:20px;display:flex;flex-direction:column;gap:14px;position:sticky;top:58px;max-height:calc(100vh - 58px);overflow:auto}
