@@ -733,5 +733,12 @@
  "Put In the Binder on your home screen": "Ajoutez In the Binder à votre écran d'accueil",
  "Tap Share, then Add to Home Screen. It opens full screen like an app and works with no signal.": "Touchez Partager, puis Sur l'écran d'accueil. Elle s'ouvre en plein écran comme une app et fonctionne sans réseau.",
  "Open this page in Safari, tap Share, then Add to Home Screen.": "Ouvrez cette page dans Safari, touchez Partager, puis Sur l'écran d'accueil.",
- "Got it": "Compris"
+ "Got it": "Compris",
+ "Your binder, on your iPhone": "Votre classeur, sur votre iPhone",
+ "Tick off the cards you own, set by set, and see what your collection is worth. It stays on this iPhone: nothing is uploaded.": "Cochez les cartes que vous possédez, extension par extension, et voyez combien vaut votre collection. Tout reste sur cet iPhone : rien n'est envoyé.",
+ "Backup for phone": "Sauvegarde pour téléphone",
+ "Save changes for phone": "Enregistrer pour le téléphone",
+ "Start my collection": "Commencer ma collection",
+ "I have a backup from the Android app": "J'ai une sauvegarde de l'app Android",
+ "Tap Backup for phone now and then to keep a copy. If this iPhone is lost or reset, the collection goes with it.": "Touchez « Sauvegarde pour téléphone » de temps en temps pour garder une copie. Si cet iPhone est perdu ou réinitialisé, la collection disparaît avec lui."
 }

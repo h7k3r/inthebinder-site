@@ -733,5 +733,12 @@
  "Put In the Binder on your home screen": "将 In the Binder 添加到主屏幕",
  "Tap Share, then Add to Home Screen. It opens full screen like an app and works with no signal.": "点按“分享”，然后选择“添加到主屏幕”。它会像应用一样全屏打开，没有信号也能使用。",
  "Open this page in Safari, tap Share, then Add to Home Screen.": "请在 Safari 中打开此页面，点按“分享”，然后选择“添加到主屏幕”。",
- "Got it": "知道了"
+ "Got it": "知道了",
+ "Your binder, on your iPhone": "你的卡册，就在 iPhone 上",
+ "Tick off the cards you own, set by set, and see what your collection is worth. It stays on this iPhone: nothing is uploaded.": "按系列勾选你拥有的卡牌，查看收藏的价值。数据只保存在这台 iPhone 上，不会上传。",
+ "Backup for phone": "手机备份",
+ "Save changes for phone": "为手机保存更改",
+ "Start my collection": "开始我的收藏",
+ "I have a backup from the Android app": "我有 Android 应用的备份",
+ "Tap Backup for phone now and then to keep a copy. If this iPhone is lost or reset, the collection goes with it.": "请不时点按“手机备份”保存一份副本。如果这台 iPhone 丢失或被重置，收藏也会一起丢失。"
 }

@@ -60,6 +60,9 @@ main{padding-bottom:env(safe-area-inset-bottom)}
 .installHint img{width:44px;height:44px;border-radius:10px;flex:none}
 .installText{flex:1;display:flex;flex-direction:column;gap:2px;font-size:13.5px}
 .installText span{color:var(--dim)}
+.welcome .btn.big{font-size:17px;font-weight:800;padding:15px;margin-top:22px}
+.welcome .ghost.wide{display:flex;justify-content:center;text-align:center;width:100%;padding:13px;margin-top:10px;border-radius:999px}
+.welcome .keepcopy{margin-top:18px}
 
 /* layout */
 .withside{display:flex;align-items:flex-start}

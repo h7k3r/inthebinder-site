@@ -733,5 +733,12 @@
  "Put In the Binder on your home screen": "In the Binder를 홈 화면에 추가하세요",
  "Tap Share, then Add to Home Screen. It opens full screen like an app and works with no signal.": "공유를 누른 다음 홈 화면에 추가를 누르세요. 앱처럼 전체 화면으로 열리고 신호가 없어도 작동합니다.",
  "Open this page in Safari, tap Share, then Add to Home Screen.": "이 페이지를 Safari에서 열고 공유를 누른 다음 홈 화면에 추가를 누르세요.",
- "Got it": "확인"
+ "Got it": "확인",
+ "Your binder, on your iPhone": "내 바인더를 iPhone에서",
+ "Tick off the cards you own, set by set, and see what your collection is worth. It stays on this iPhone: nothing is uploaded.": "가지고 있는 카드를 세트별로 체크하고 컬렉션의 가치를 확인하세요. 모든 데이터는 이 iPhone에만 저장되며 업로드되지 않습니다.",
+ "Backup for phone": "휴대폰용 백업",
+ "Save changes for phone": "변경 사항을 휴대폰용으로 저장",
+ "Start my collection": "내 컬렉션 시작하기",
+ "I have a backup from the Android app": "Android 앱 백업이 있어요",
+ "Tap Backup for phone now and then to keep a copy. If this iPhone is lost or reset, the collection goes with it.": "가끔 '휴대폰용 백업'을 눌러 사본을 보관하세요. 이 iPhone을 잃어버리거나 초기화하면 컬렉션도 함께 사라집니다."
 }

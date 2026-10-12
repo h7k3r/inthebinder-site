@@ -733,5 +733,12 @@
  "Put In the Binder on your home screen": "In the Binder をホーム画面に追加",
  "Tap Share, then Add to Home Screen. It opens full screen like an app and works with no signal.": "共有をタップし、「ホーム画面に追加」を選んでください。アプリのように全画面で開き、電波がなくても使えます。",
  "Open this page in Safari, tap Share, then Add to Home Screen.": "このページを Safari で開き、共有をタップして「ホーム画面に追加」を選んでください。",
- "Got it": "OK"
+ "Got it": "OK",
+ "Your binder, on your iPhone": "あなたのバインダーを iPhone で",
+ "Tick off the cards you own, set by set, and see what your collection is worth. It stays on this iPhone: nothing is uploaded.": "持っているカードをセットごとにチェックして、コレクションの価値を確認しましょう。データはこの iPhone にだけ保存され、アップロードされません。",
+ "Backup for phone": "スマホ用バックアップ",
+ "Save changes for phone": "変更をスマホ用に保存",
+ "Start my collection": "コレクションを始める",
+ "I have a backup from the Android app": "Android アプリのバックアップがあります",
+ "Tap Backup for phone now and then to keep a copy. If this iPhone is lost or reset, the collection goes with it.": "ときどき「スマホ用バックアップ」をタップしてコピーを保存してください。この iPhone をなくしたり初期化したりすると、コレクションも消えてしまいます。"
 }
