@@ -8,14 +8,14 @@
  *   background for next time.
  * - Other sites (card pictures, prices, other games' catalogues) are left
  *   alone: the browser's own cache handles them.
- * Each build has its own cache (mv5okyqp); older ones are deleted.
+ * Each build has its own cache (mv7hfsyi); older ones are deleted.
  */
-const CACHE = 'itb-app-mv5okyqp';
+const CACHE = 'itb-app-mv7hfsyi';
 const SCANNER = 'itb-scanner';
 const CORE = [
   './',
-  './app.js?v=mv5okyqp',
-  './styles.css?v=mv5okyqp',
+  './app.js?v=mv7hfsyi',
+  './styles.css?v=mv7hfsyi',
   './manifest.webmanifest',
   './data/en.json',
   './data/meta.json',

@@ -254,3 +254,7 @@ main{padding-bottom:env(safe-area-inset-bottom)}
 
 /* Other games' set tiles: the set code where Pokémon shows its logo. */
 .settile .logo span.code { font-family: "Syncopate", "Segoe UI", sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .04em; color: var(--gold2, #3fe6ff); }
+
+/* Not-affiliated notice under every page (14 Oct). */
+footer.legal { max-width: 900px; margin: 32px auto 24px; padding: 0 16px; text-align: center; line-height: 1.45; }
+
