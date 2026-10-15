@@ -1,14 +1,14 @@
 {
- "v": "df54649f08",
+ "v": "502a25e1ec",
  "dim": 512,
- "count": 30373,
+ "count": 32447,
  "ort": "1.29.0",
  "ortBytes": 14036189,
  "files": {
   "detector.onnx": 19105325,
   "embedder.onnx": 7000814,
-  "index.bin": 15550976,
-  "index_scale.bin": 121492,
-  "index_ids.json": 355805
+  "index.bin": 16612864,
+  "index_scale.bin": 129788,
+  "index_ids.json": 383562
  }
 }
