@@ -123,6 +123,7 @@
     nav { display:none; }
   }
 </style>
+<script>(function(){try{var K='h7k_lang',p=location.pathname,onFr=/^\/fr(\/|$)/.test(p),s=null;try{s=localStorage.getItem(K)}catch(e){}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a){try{localStorage.setItem(K,a.getAttribute('data-lang'))}catch(e){}}});if(onFr||s)return;var L=(navigator.languages||[navigator.language||'']).join(',').toLowerCase();if(/(^|,)fr(-[a-z]+)?(,|$)/.test(L)){location.replace((p==='/'?'/fr/':'/fr'+p)+location.search+location.hash)}}catch(e){}})();</script>
 </head>
 <body>
 <div class="wrap">
@@ -133,7 +134,7 @@
       <a href="#features">Features</a>
       <a href="#security">Security</a>
       <a href="/app/">Web version</a>
-      <a href="/beta/">Join the beta</a><a href="/fr/" style="color:var(--dim);text-decoration:none;margin-left:18px;font-size:.95rem">FR</a>
+      <a href="/beta/">Join the beta</a><a href="/fr/" class="lang-switch" data-lang="fr" aria-label="Version française" style="color:var(--dim);text-decoration:none;margin-left:18px;font-size:.95rem">FR</a>
     </nav>
   </header>
 

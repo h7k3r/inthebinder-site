@@ -5,6 +5,9 @@
 <meta name='impact-site-verification' value='985993dc-538a-496c-a4ff-d3935fa00ed9'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Application In the Binder : scanner de cartes et suivi de collection pour Pokémon, One Piece, Lorcana et plus</title>
+<link rel="alternate" hreflang="en" href="https://inthebinder.com/">
+<link rel="alternate" hreflang="fr" href="https://inthebinder.com/fr/">
+<link rel="alternate" hreflang="x-default" href="https://inthebinder.com/">
 <meta name="description" content="In the Binder est une application gratuite de collection de cartes pour Android : Pokémon, One Piece, Disney Lorcana, Dragon Ball Super Fusion World, Magic: The Gathering et Yu-Gi-Oh!. Scannez vos cartes à la caméra, y compris les éditions japonaises, coréennes et chinoises de Pokémon, classez-les en classeurs par série, vérifiez le centrage pour la gradation PSA, suivez vos slabs et connaissez la valeur de votre collection. Fonctionne hors ligne.">
 <meta property="og:title" content="In the Binder : votre collection de cartes, dans votre poche">
 <meta property="og:description" content="Scannez vos cartes, remplissez vos classeurs série par série et découvrez la valeur de votre collection. Désormais en bêta sur Android.">
@@ -120,13 +123,14 @@
     nav { display:none; }
   }
 </style>
+<script>(function(){try{var K='h7k_lang',p=location.pathname,onFr=/^\/fr(\/|$)/.test(p),s=null;try{s=localStorage.getItem(K)}catch(e){}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a){try{localStorage.setItem(K,a.getAttribute('data-lang'))}catch(e){}}});if(onFr||s)return;var L=(navigator.languages||[navigator.language||'']).join(',').toLowerCase();if(/(^|,)fr(-[a-z]+)?(,|$)/.test(L)){location.replace((p==='/'?'/fr/':'/fr'+p)+location.search+location.hash)}}catch(e){}})();</script>
 </head>
 <body>
 <div class="wrap">
   <header>
     <a class="brand" href="/"><img src="/logo.png" alt="In the Binder" height="64" style="display:block"></a>
     <nav>
-      <a href="/" style="color:var(--dim);text-decoration:none;margin-left:18px;font-size:.95rem">EN</a><a href="#screens">Aperçu</a>
+      <a href="/" class="lang-switch" data-lang="en" aria-label="English version" style="color:var(--dim);text-decoration:none;margin-left:18px;font-size:.95rem">EN</a><a href="#screens">Aperçu</a>
       <a href="#features">Fonctions</a>
       <a href="#security">Sécurité</a>
       <a href="/app/">Version web</a>

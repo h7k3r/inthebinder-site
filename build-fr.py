@@ -236,37 +236,80 @@ BETA = [
      "In the Binder est une application indépendante. Elle n'est ni affiliée, ni approuvée, ni parrainée par Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast, Konami ou tout autre éditeur de cartes. Les noms de cartes, images et marques appartiennent à leurs propriétaires respectifs."),
 ]
 
-SWITCH = ('<a href="%s" style="color:var(--dim);text-decoration:none;margin-left:18px;'
-          'font-size:.95rem">%s</a>')
+# English by default; French for French browsers; a switcher click always wins.
+# Only pages with a /fr twin get it (not /app/ or /c/, which have no /fr copy).
+LANGJS = (
+    "<script>(function(){try{var K='h7k_lang',p=location.pathname,onFr=/^\\/fr(\\/|$)/.test(p),s=null;"
+    "try{s=localStorage.getItem(K)}catch(e){}"
+    "document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');"
+    "if(a){try{localStorage.setItem(K,a.getAttribute('data-lang'))}catch(e){}}});"
+    "if(onFr||s)return;var L=(navigator.languages||[navigator.language||'']).join(',').toLowerCase();"
+    "if(/(^|,)fr(-[a-z]+)?(,|$)/.test(L)){location.replace((p==='/'?'/fr/':'/fr'+p)+location.search+location.hash)}}catch(e){}})();</script>"
+)
+NAV_SW = ('<a href="%s" class="lang-switch" data-lang="%s" aria-label="%s" '
+          'style="color:var(--dim);text-decoration:none;margin-left:18px;font-size:.95rem">%s</a>')
+ROW_SW = ('<div class="lang-row" style="text-align:right;font-size:.9rem;margin-bottom:-10px">'
+          '<a href="%s" class="lang-switch" data-lang="%s" aria-label="%s" style="color:var(--dim)">%s</a></div>')
+
+_CLEAN = [
+    re.compile(r'<a href="/fr/" style="color:var\(--dim\);text-decoration:none;margin-left:18px;font-size:\.95rem">FR</a>'),
+    re.compile(r'<a [^>]*class="lang-switch"[^>]*>[A-Z]{2}</a>'),
+    re.compile(r'\n<div class="lang-row"[^>]*>.*?</div>', re.S),
+    re.compile(r"<script>\(function\(\)\{try\{var K='h7k_lang'.*?</script>\n?", re.S),
+]
+
+
+def clean(html):
+    """English source without any switcher or language script, so each page is
+    rebuilt from the same base and ends up with exactly one switcher."""
+    for rx in _CLEAN:
+        html = rx.sub("", html)
+    return html
+
+
+def with_js(html):
+    return html.replace("</head>", LANGJS + "\n</head>", 1)
+
+
+def one_switch(name, html):
+    n = html.count('class="lang-switch"')
+    if n != 1:
+        sys.exit("STOP [%s]: %d language switchers" % (name, n))
+    return html
 
 
 def build_home():
-    html = (ROOT / "index.html").read_text(encoding="utf-8")
-    fr = apply_pairs(html, HOME, "home")
-    fr = fr.replace('<a href="#screens">Aperçu</a>',
-                    '<a href="/" style="color:var(--dim);text-decoration:none;margin-left:18px;font-size:.95rem">EN</a><a href="#screens">Aperçu</a>', 1)
-    (ROOT / "fr" / "index.html").write_text(fr, encoding="utf-8")
+    src = clean((ROOT / "index.html").read_text(encoding="utf-8"))
+    fr = apply_pairs(src, HOME, "home")
+    fr = fr.replace('<nav>\n      <a href="#screens">',
+                    '<nav>\n      ' + NAV_SW % ("/", "en", "English version", "EN") + '<a href="#screens">', 1)
+    (ROOT / "fr" / "index.html").write_text(one_switch("fr/index.html", with_js(fr)), encoding="utf-8")
 
-    en = add_hreflang(html, "/", "/fr/")
-    if ">EN</a>" not in en and ">FR</a>" not in en:
-        en = en.replace('<a href="/beta/">Join the beta</a>',
-                        '<a href="/beta/">Join the beta</a>' + SWITCH % ("/fr/", "FR"), 1)
-    (ROOT / "index.html").write_text(en, encoding="utf-8")
+    en = add_hreflang(src, "/", "/fr/")
+    en = en.replace('<a href="/beta/">Join the beta</a>',
+                    '<a href="/beta/">Join the beta</a>' + NAV_SW % ("/fr/", "fr", "Version française", "FR"), 1)
+    (ROOT / "index.html").write_text(one_switch("index.html", with_js(en)), encoding="utf-8")
 
 
 def build_privacy():
-    html = (ROOT / "privacy.html").read_text(encoding="utf-8")
-    # Privacy copy is translated separately (see build-fr-privacy appended below).
-    fr = translate_privacy(html)
-    (ROOT / "fr" / "privacy.html").write_text(fr, encoding="utf-8")
-    en = add_hreflang(html, "/privacy.html", "/fr/privacy.html")
-    (ROOT / "privacy.html").write_text(en, encoding="utf-8")
+    src = clean((ROOT / "privacy.html").read_text(encoding="utf-8"))
+    fr = translate_privacy(src)
+    fr = fr.replace("<main>", "<main>\n" + ROW_SW % ("/privacy.html", "en", "English version", "EN"), 1)
+    (ROOT / "fr" / "privacy.html").write_text(one_switch("fr/privacy.html", with_js(fr)), encoding="utf-8")
+
+    en = add_hreflang(src, "/privacy.html", "/fr/privacy.html")
+    en = en.replace("<main>", "<main>\n" + ROW_SW % ("/fr/privacy.html", "fr", "Version française", "FR"), 1)
+    (ROOT / "privacy.html").write_text(one_switch("privacy.html", with_js(en)), encoding="utf-8")
 
 
 def build_beta():
-    html = (ROOT / "beta" / "index.html").read_text(encoding="utf-8")
-    fr = apply_pairs(html, BETA, "beta")
-    (ROOT / "fr" / "beta" / "index.html").write_text(fr, encoding="utf-8")
+    src = clean((ROOT / "beta" / "index.html").read_text(encoding="utf-8"))
+    fr = apply_pairs(src, BETA, "beta")
+    fr = fr.replace("<main>", "<main>\n" + ROW_SW % ("/beta/", "en", "English version", "EN"), 1)
+    (ROOT / "fr" / "beta" / "index.html").write_text(one_switch("fr/beta", with_js(fr)), encoding="utf-8")
+
+    en = src.replace("<main>", "<main>\n" + ROW_SW % ("/fr/beta/", "fr", "Version française", "FR"), 1)
+    (ROOT / "beta" / "index.html").write_text(one_switch("beta", with_js(en)), encoding="utf-8")
 
 
 def build_sitemap():

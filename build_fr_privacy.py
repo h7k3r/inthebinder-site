@@ -89,8 +89,4 @@ def translate_privacy(html):
         if n != 1:
             raise SystemExit("STOP [privacy]: expected 1 of %r, found %d" % (en[:60], n))
         html = html.replace(en, fr)
-    # EN/FR link in the top corner.
-    sw = ('<div style="text-align:right;font-size:.9rem;margin-bottom:-10px">'
-          '<a href="/privacy.html" style="color:var(--dim)">EN</a></div>')
-    html = html.replace("<main>", "<main>\n" + sw, 1)
-    return html
+    return html  # the EN/FR switcher is added by build-fr.py
