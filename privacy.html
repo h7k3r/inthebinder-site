@@ -25,10 +25,10 @@
 <main>
 <a href="/"><img src="/logo.png" alt="In the Binder" height="48" style="display:block;margin-bottom:18px"></a>
 <h1>In the Binder Privacy Policy</h1>
-<p class="meta">Last updated: 15 October 2026</p>
+<p class="meta">Last updated: 16 October 2026</p>
 
 <div class="box">
-<p><strong>The short version:</strong> your collection lives on your phone. In the Binder has no accounts and no servers that store your data. We never see what you own. The only third party that receives data about your device is Google AdMob, which shows the banner ad.</p>
+<p><strong>The short version:</strong> your collection lives on your phone. In the Binder has no accounts and no servers that store your data. We never see what you own. Apart from the services listed below, which only receive what they need to answer a request, the only third party that receives data about your device is Google AdMob, which shows the banner ad.</p>
 </div>
 
 <h2>Who we are</h2>
@@ -51,6 +51,7 @@
   <li><strong>Other card games (One Piece, Lorcana, Dragon Ball, Magic, Yu-Gi-Oh!):</strong> the first time you open one of these games, the app downloads its public card list and scanner reference data from our data repository on GitHub (github.com and raw.githubusercontent.com), and then checks for updates and the day's market prices about once a day. That data is built from TCGplayer's public product information. Card pictures are loaded from TCGplayer's image server (tcgplayer-cdn.tcgplayer.com). These requests ask only for public card information and carry nothing about you or your collection, beyond the IP address every internet request carries.</li>
   <li><strong>Exchange rates:</strong> to show prices in your currency, the app fetches the European Central Bank's daily reference rates from Frankfurter (frankfurter.app) at most once a day. The request asks only for the rates and carries nothing about you or your collection, beyond the IP address every internet request carries.</li>
   <li><strong>New card data:</strong> once a day the app checks this website for a newer card list and scanner index, and downloads it if there is one. The request carries nothing about you or your collection, beyond the IP address every internet request carries.</li>
+  <li><strong>App updates:</strong> when the app opens, it asks Expo (expo.dev), the service that delivers its small updates, whether a newer version is ready. The request carries the app's version, whether it's running on Android or iPhone, and a random install number created on your phone. That number isn't linked to you or your advertising ID, and it changes if you reinstall the app. Expo uses it to send the right update and count installs.</li>
   <li><strong>Sealed product barcodes:</strong> when you scan the barcode of a sealed product (a booster box, a tin) that the app doesn't already know, it first checks a list of sealed-product barcodes downloaded from our data repository on GitHub; nothing is sent for that. Only if the barcode isn't on the list is the barcode number sent to UPCitemdb (upcitemdb.com) to look up the product's name and picture. Only the barcode number is sent.</li>
   <li><strong>PriceCharting import (optional):</strong> if you choose to import your collection from PriceCharting, the app fetches that collection from pricecharting.com using the seller ID or link you enter. Nothing is sent unless you start an import.</li>
   <li><strong>Grading certificate checks:</strong> the "Cert" and "Verify" buttons open the grading company's own website (PSA, CGC, Beckett and others) in your browser, with the certificate number in the address, so you can check a slab. That site's own privacy policy applies.</li>
