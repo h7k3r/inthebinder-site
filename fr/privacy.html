@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité d'In the Binder</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="theme-color" content="#14022f">
+<style>
+  :root { --bg:#0d0322; --panel:#1a0838; --text:#f3ecff; --dim:#b9abd8; --gold:#ff5ad9; }
+  @font-face{font-family:"Syncopate";font-weight:700;font-display:swap;src:url(/fonts/Syncopate-Bold.woff2) format("woff2")}
+  @font-face{font-family:"Syncopate";font-weight:400;font-display:swap;src:url(/fonts/Syncopate-Regular.woff2) format("woff2")}
+  h1, h2 { font-family:"Syncopate", "Segoe UI", sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { margin-bottom:4px; font-size:1.6rem; background:linear-gradient(90deg,#ff5ad9,#b46bff 45%,#3fe6ff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  h2 { margin-top:32px; font-size:.95rem; }
+  p, li { color:var(--text); }
+  .meta { color:var(--dim); margin-top:0; }
+  a { color:var(--gold); }
+  .box { background:var(--panel); border-left:3px solid var(--gold); padding:12px 16px; border-radius:6px; }
+</style>
+</head>
+<body>
+<main>
+<div style="text-align:right;font-size:.9rem;margin-bottom:-10px"><a href="/privacy.html" style="color:var(--dim)">EN</a></div>
+<a href="/fr/"><img src="/logo.png" alt="In the Binder" height="48" style="display:block;margin-bottom:18px"></a>
+<h1>Politique de confidentialité d'In the Binder</h1>
+<p class="meta">Dernière mise à jour : 16 octobre 2026</p>
+
+<div class="box">
+<p><strong>En résumé :</strong> votre collection reste sur votre téléphone. In the Binder n'a ni comptes ni serveurs qui stockent vos données. Nous ne voyons jamais ce que vous possédez. En dehors des services listés ci-dessous, qui ne reçoivent que ce dont ils ont besoin pour répondre à une requête, le seul tiers qui reçoit des données sur votre appareil est Google AdMob, qui affiche la bannière publicitaire.</p>
+</div>
+
+<h2>Qui nous sommes</h2>
+<p>In the Binder est édité par R. Iglesias, exerçant sous le nom In the Binder, entrepreneur individuel établi en Angleterre (« nous »). Pour toute question de confidentialité, contactez <a href="mailto:support@inthebinder.com">support@inthebinder.com</a>.</p>
+
+<h2>Ce qui reste sur votre téléphone</h2>
+<ul>
+  <li><strong>Votre collection :</strong> les cartes, produits scellés et slabs gradés que vous ajoutez, avec les quantités, états, notes et numéros de certificat. Tout cela est stocké dans la base de données de l'application, sur votre appareil. Pour qu'un téléphone perdu ou remplacé ne signifie pas une collection perdue, l'application en conserve aussi une petite copie (vos cartes, produits scellés, historique des prix, alertes de prix et réglages d'affichage, jamais de clés ni de photos) pour la sauvegarde de votre téléphone. Si la sauvegarde est activée dans les réglages de votre téléphone, Android enregistre cette copie dans la sauvegarde de votre compte Google et peut la restaurer sur un nouveau téléphone, où l'application vous demande votre accord avant de la rétablir. Cette sauvegarde est détenue par Google sous votre compte ; nous ne la recevons jamais. Rien d'autre de ce que stocke l'application n'y est inclus. Vous pouvez désactiver la sauvegarde dans les réglages de votre téléphone.</li>
+  <li><strong>Réglages, thème et série de visites :</strong> également stockés sur votre appareil (les réglages d'affichage sont inclus dans la copie de sauvegarde décrite ci-dessus).</li>
+  <li><strong>Caméra et photos :</strong> la caméra n'est utilisée que lorsque le scanner est ouvert, pour reconnaître les cartes sur votre téléphone lui-même. La reconnaissance des cartes se fait entièrement sur l'appareil. Les photos ne sont jamais envoyées. Les photos que vous choisissez d'importer sont lues sur l'appareil de la même façon.</li>
+  <li><strong>Mémoire du scanner :</strong> lorsque vous confirmez une carte scannée, le scanner conserve sur votre téléphone une petite empreinte numérique de cette photo (pas la photo elle-même), pour reconnaître vos cartes plus vite la fois suivante. Elle ne quitte jamais votre appareil, et vous pouvez l'effacer dans les Réglages, sous Mémoire du scanner.</li>
+  <li><strong>NFC :</strong> utilisé uniquement lorsque vous approchez la puce d'un slab gradé, pour lire son numéro de certificat.</li>
+  <li><strong>Journal d'erreurs :</strong> l'application conserve sur votre téléphone une courte liste de ses erreurs récentes (messages d'erreur uniquement, jamais votre collection ni vos photos). Elle n'est envoyée que si vous choisissez « Envoyer un retour » dans les Réglages, ce qui ouvre un e-mail que vous pouvez lire et modifier avant l'envoi.</li>
+</ul>
+<p>Désinstaller l'application supprime tout cela de votre téléphone. Une copie dans la sauvegarde Google de votre téléphone, s'il y en a une, est gérée par Google et peut être supprimée depuis les réglages de sauvegarde de votre compte Google. Vous pouvez exporter votre collection à tout moment depuis les Réglages.</p>
+
+<h2>Ce qui quitte votre téléphone</h2>
+<ul>
+  <li><strong>Prix et images des cartes :</strong> pour afficher les prix et les images, l'application télécharge les prix publics du jour depuis notre dépôt de données sur GitHub (raw.githubusercontent.com), qui les copie une fois par jour depuis l'API Pokémon TCG (pokemontcg.io). Si cette copie n'est pas disponible, l'application interroge directement pokemontcg.io. Les images des cartes proviennent des serveurs d'images de pokemontcg.io. Ces requêtes demandent des informations publiques sur les séries et les cartes. Elles n'incluent pas votre collection ni rien qui vous identifie, au-delà de l'adresse IP que porte toute requête internet.</li>
+  <li><strong>Autres jeux de cartes (One Piece, Lorcana, Dragon Ball, Magic, Yu-Gi-Oh!) :</strong> la première fois que vous ouvrez l'un de ces jeux, l'application télécharge sa liste de cartes publiques et les données de référence du scanner depuis notre dépôt de données sur GitHub (github.com et raw.githubusercontent.com), puis vérifie les mises à jour et les prix du marché du jour environ une fois par jour. Ces données sont construites à partir des informations produit publiques de TCGplayer. Les images des cartes sont chargées depuis le serveur d'images de TCGplayer (tcgplayer-cdn.tcgplayer.com). Ces requêtes ne demandent que des informations publiques sur les cartes et ne transportent rien sur vous ni votre collection, au-delà de l'adresse IP que porte toute requête internet.</li>
+  <li><strong>Taux de change :</strong> pour afficher les prix dans votre devise, l'application récupère les taux de référence quotidiens de la Banque centrale européenne depuis Frankfurter (frankfurter.app), au maximum une fois par jour. La requête ne demande que les taux et ne transporte rien sur vous ni votre collection, au-delà de l'adresse IP que porte toute requête internet.</li>
+  <li><strong>Nouvelles données de cartes :</strong> une fois par jour, l'application vérifie sur ce site s'il existe une liste de cartes et un index de scanner plus récents, et les télécharge le cas échéant. La requête ne transporte rien sur vous ni votre collection, au-delà de l'adresse IP que porte toute requête internet.</li>
+  <li><strong>Mises à jour de l'application :</strong> à son ouverture, l'application demande à Expo (expo.dev), le service qui diffuse ses petites mises à jour, si une version plus récente est prête. La requête transporte la version de l'application, le fait qu'elle tourne sur Android ou iPhone, et un numéro d'installation aléatoire créé sur votre téléphone. Ce numéro n'est lié ni à vous ni à votre identifiant publicitaire, et il change si vous réinstallez l'application. Expo l'utilise pour envoyer la bonne mise à jour et compter les installations.</li>
+  <li><strong>Codes-barres des produits scellés :</strong> lorsque vous scannez le code-barres d'un produit scellé (un display, une boîte métal) que l'application ne connaît pas encore, elle vérifie d'abord une liste de codes-barres de produits scellés téléchargée depuis notre dépôt de données sur GitHub ; rien n'est envoyé pour cela. Ce n'est que si le code-barres n'est pas dans la liste que son numéro est envoyé à UPCitemdb (upcitemdb.com) pour retrouver le nom et l'image du produit. Seul le numéro de code-barres est envoyé.</li>
+  <li><strong>Import PriceCharting (facultatif) :</strong> si vous choisissez d'importer votre collection depuis PriceCharting, l'application récupère cette collection sur pricecharting.com à l'aide de l'identifiant vendeur ou du lien que vous saisissez. Rien n'est envoyé tant que vous ne lancez pas d'import.</li>
+  <li><strong>Vérification des certificats de gradation :</strong> les boutons « Cert » et « Vérifier » ouvrent le site de l'organisme de gradation (PSA, CGC, Beckett et autres) dans votre navigateur, avec le numéro de certificat dans l'adresse, pour que vous puissiez vérifier un slab. La politique de confidentialité de ce site s'applique alors.</li>
+  <li><strong>Liens de collection partagée :</strong> lorsque vous partagez votre collection, toute la liste est inscrite dans le lien lui-même, après le « # ». Cette partie d'un lien n'est jamais envoyée à aucun serveur, y compris le nôtre. Quiconque ouvre le lien voit la collection ; son navigateur charge ensuite les images et prix publics des cartes de la même façon que l'application.</li>
+  <li><strong>Tri Jev (facultatif, désactivé sauf si vous l'activez) :</strong> si vous ajoutez votre propre clé TypeSafe AI dans les Réglages et appuyez sur « Trier les articles PriceCharting en attente », les noms de ces articles et ceux des cartes candidates sont envoyés à TypeSafe AI (api.typesafe.ai) pour choisir la carte correspondante. Rien d'autre n'est envoyé, et rien n'est envoyé tant que vous n'ajoutez pas de clé et n'appuyez pas sur le bouton. Votre clé est stockée uniquement sur votre téléphone.</li>
+  <li><strong>Publicité (Google AdMob) :</strong> l'application gratuite affiche une bannière publicitaire diffusée par Google AdMob. AdMob peut collecter l'identifiant publicitaire de votre appareil, votre adresse IP et des informations sur vos interactions avec les publicités, afin d'afficher des annonces, limiter les répétitions, mesurer les performances et prévenir la fraude. Au Royaume-Uni et dans l'EEE, votre consentement est demandé avant l'affichage de publicités personnalisées, et vous pouvez modifier ce choix à tout moment. Vous pouvez aussi réinitialiser ou supprimer votre identifiant publicitaire dans les réglages Google de votre téléphone. Voir <a href="https://policies.google.com/technologies/partner-sites">comment Google utilise les données des applis qui recourent à ses services</a>.</li>
+  <li><strong>Liens d'achat et de prix de vente :</strong> les boutons « Acheter », « Prix de vente » et « Cardmarket » ouvrent TCGplayer, eBay ou Cardmarket dans votre navigateur. Ces liens peuvent porter une balise d'affiliation, donc nous pouvons percevoir une commission si vous achetez quelque chose. Ces sites ont leurs propres politiques de confidentialité. Nous ne recevons d'eux aucune information personnelle, seulement des rapports de commission anonymes.</li>
+</ul>
+
+<h2>Ce que nous ne faisons pas</h2>
+<ul>
+  <li>Nous ne vendons pas vos données.</li>
+  <li>Nous n'avons ni comptes, ni connexions, ni stockage dans le cloud.</li>
+  <li>Nous ne suivons pas votre position.</li>
+  <li>Nous ne lisons ni vos contacts ni vos fichiers, hormis les photos, sauvegardes et tableurs que vous choisissez d'importer vous-même. Ils sont lus sur votre téléphone et jamais envoyés.</li>
+</ul>
+
+<h2>Base légale (RGPD britannique)</h2>
+<p>Le stockage de votre collection sur votre propre appareil ne nécessite aucune base légale de notre part, car nous ne la recevons jamais. Les données publicitaires sont traitées par Google sur la base de votre consentement (pour les publicités personnalisées) ou de l'intérêt légitime (pour les publicités non personnalisées et la prévention de la fraude).</p>
+
+<h2>Enfants</h2>
+<p>In the Binder est destiné aux collectionneurs de 13 ans et plus et ne s'adresse pas aux enfants de moins de 13 ans.</p>
+
+<h2>Vos droits</h2>
+<p>Vous avez le droit de demander quelles données personnelles nous détenons à votre sujet. Comme nous n'en détenons aucune de notre côté, la plupart des demandes trouvent leur réponse dans le fait que vos données n'ont jamais quitté votre téléphone. Pour les données publicitaires, utilisez les réglages de Google ou contactez-nous et nous vous aiderons. Vous pouvez aussi déposer une réclamation auprès de l'Information Commissioner's Office britannique sur <a href="https://ico.org.uk">ico.org.uk</a>.</p>
+
+<h2>Modifications</h2>
+<p>Si cette politique évolue, nous mettrons à jour la date en haut et, pour les changements importants, nous le signalerons dans l'application.</p>
+</main>
+<p class="legal" style="max-width:900px;margin:32px auto 24px;padding:0 16px;text-align:center;font-size:12px;line-height:1.45;opacity:.7">In the Binder est une application indépendante. Elle n'est ni affiliée, ni approuvée, ni parrainée par Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast, Konami ou tout autre éditeur de cartes. Les noms de cartes, images et marques appartiennent à leurs propriétaires respectifs.</p>
+</body>
+</html>

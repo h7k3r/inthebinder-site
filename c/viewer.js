@@ -8,6 +8,52 @@
 (function () {
   const S = window.HoloShare;
   const app = document.getElementById('app');
+  // Shared links use one URL for everyone, so the viewer follows the reader's
+  // browser language instead of a separate /fr/ page.
+  const FR = /^fr/i.test(navigator.language || '');
+  const L = FR ? {
+    loading: 'Chargement…',
+    loadingDetails: 'Chargement des détails des cartes…',
+    notLink: "Ce n'est pas un lien In the Binder.",
+    compareWith: 'Comparer avec un autre lien In the Binder',
+    pasteLink: 'Collez un lien In the Binder',
+    searchPh: 'Rechercher cartes ou séries',
+    inBoth: 'Dans les deux',
+    onlyIn: (t) => `Seulement dans ${t}`,
+    otherColl: 'Autre collection',
+    aColl: 'Une collection In the Binder',
+    openTitle: 'Ouvrir une collection',
+    openHelp: "Dans l'application In the Binder, allez dans Collection et touchez Partager. Ouvrez ce lien ici, ou collez-le ci-dessous.",
+    noMatch: 'Aucune carte ne correspond.',
+    cards: 'cartes', sets: 'séries', marketValue: 'valeur marché', of: ' sur ',
+    stopCompare: 'Arrêter la comparaison', compare: 'Comparer', open: 'Ouvrir',
+  } : {
+    loading: 'Loading…',
+    loadingDetails: 'Loading card details…',
+    notLink: 'That is not a In the Binder link.',
+    compareWith: 'Compare with another In the Binder link',
+    pasteLink: 'Paste a In the Binder link',
+    searchPh: 'Search cards or sets',
+    inBoth: 'In both',
+    onlyIn: (t) => `Only in ${t}`,
+    otherColl: 'Other collection',
+    aColl: 'A In the Binder collection',
+    openTitle: 'Open a collection',
+    openHelp: 'In the In the Binder app, go to Collection and tap Share. Open that link here, or paste it below.',
+    noMatch: 'No cards match.',
+    cards: 'cards', sets: 'sets', marketValue: 'market value', of: ' of ',
+    stopCompare: 'Stop comparing', compare: 'Compare', open: 'Open',
+  };
+  if (FR) document.documentElement.lang = 'fr';
+  if (FR) {
+    const chrome = {
+      '.note': "Cette collection est contenue dans le lien lui-même. Rien n'est stocké sur nos serveurs, et seules les personnes disposant du lien peuvent la voir. Les prix sont les prix du marché TCGplayer en dollars américains, lorsqu'ils sont disponibles.",
+      'footer': "In the Binder est une application indépendante, sans affiliation avec Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast ou Konami.",
+    };
+    for (const [sel, txt] of Object.entries(chrome)) { const el = document.querySelector(sel); if (el) el.textContent = txt; }
+    const get = document.querySelector('header a:not(.brand)[href="/"]'); if (get) { get.textContent = "Obtenir l'appli"; get.setAttribute('href', '/fr/'); }
+    const brand = document.querySelector('.brand'); if (brand) brand.setAttribute('href', '/fr/');
+  }
   // A card picture that fails to load becomes a plain placeholder with the
   // card id as TEXT (never markup). 'error' doesn't bubble, so listen in the
   // capture phase once for every <img> the page ever draws.
@@ -124,7 +170,7 @@
   function renderSets(list, filter, badgeOf) {
     const f = (filter || '').trim().toLowerCase();
     const shown = f ? list.filter((r) => ((r.card && r.card.name) || r.cardId).toLowerCase().includes(f) || (r.card && r.card.set && r.card.set.name.toLowerCase().includes(f))) : list;
-    if (!shown.length) return '<p class="empty">No cards match.</p>';
+    if (!shown.length) return `<p class="empty">${L.noMatch}</p>`;
     const groups = new Map();
     for (const r of shown) {
       if (!groups.has(r.setId)) groups.set(r.setId, []);
@@ -142,7 +188,7 @@
       return `<section class="set"><div class="sethead">
           ${set && set.images ? `<img src="${esc(set.images.logo)}" alt="">` : ''}
           <h2>${esc(set ? set.name : gameOf(setId) ? GAMES[gameOf(setId)] : setId)}</h2>
-          <span>${cards.length}${set ? ' of ' + set.printedTotal : ''}${value ? ' · ' + money(value) : ''}</span>
+          <span>${cards.length}${set ? L.of + set.printedTotal : ''}${value ? ' · ' + money(value) : ''}</span>
         </div><div class="grid">${cards.map((r) => cardTile(r, badgeOf && badgeOf(r))).join('')}</div></section>`;
     }).join('');
   }
@@ -158,20 +204,19 @@
   async function show() {
     const shared = S.parseShareLink(location.hash);
     if (!shared) {
-      app.innerHTML = `<h1>Open a collection</h1>
-        <p style="color:var(--dim)">In the In the Binder app, go to Collection and tap Share. Open that link here,
-        or paste it below.</p>
-        <div class="bar"><input id="paste" type="url" placeholder="Paste a In the Binder link"><button id="go">Open</button></div>`;
+      app.innerHTML = `<h1>${L.openTitle}</h1>
+        <p style="color:var(--dim)">${L.openHelp}</p>
+        <div class="bar"><input id="paste" type="url" placeholder="${L.pasteLink}"><button id="go">${L.open}</button></div>`;
       document.getElementById('go').onclick = () => {
         const p = S.parseShareLink(document.getElementById('paste').value);
         if (p) { location.hash = document.getElementById('paste').value.split('#')[1]; }
       };
       return;
     }
-    app.innerHTML = '<p class="loading">Loading card details…</p>';
+    app.innerHTML = `<p class="loading">${L.loadingDetails}</p>`;
     const mine = await enrich(shared.rows);
     const t = totals(mine);
-    const title = shared.title || 'A In the Binder collection';
+    const title = shared.title || L.aColl;
     document.title = `${title} · In the Binder`;
 
     let other = null;
@@ -190,7 +235,7 @@
         const onlyA = mine.filter((r) => !theirs.has(key(r)));
         const onlyB = other.list.filter((r) => !ours.has(key(r)));
         const pick = { both, a: onlyA, b: onlyB }[tab] || both;
-        const label = { both: 'In both', a: `Only in ${title}`, b: `Only in ${other.title}` };
+        const label = { both: L.inBoth, a: L.onlyIn(title), b: L.onlyIn(other.title) };
         body = `<div class="tabs">
             ${['both', 'a', 'b'].map((k) => `<button class="tab ${tab === k ? 'on' : ''}" data-tab="${k}">${esc(label[k])} (${{ both, a: onlyA, b: onlyB }[k].length})</button>`).join('')}
           </div>` + renderSets(pick, filter);
@@ -198,15 +243,15 @@
       app.innerHTML = `
         <h1>${esc(title)}</h1>
         <div class="stats">
-          <div><strong>${t.cards.toLocaleString()}</strong>cards</div>
-          <div><strong>${t.sets}</strong>sets</div>
-          <div><strong>${t.value ? money(t.value) : '—'}</strong>market value</div>
+          <div><strong>${t.cards.toLocaleString()}</strong>${L.cards}</div>
+          <div><strong>${t.sets}</strong>${L.sets}</div>
+          <div><strong>${t.value ? money(t.value) : '—'}</strong>${L.marketValue}</div>
           ${other ? `<div><strong>${esc(other.title)}</strong>${totals(other.list).cards.toLocaleString()} cards · ${money(totals(other.list).value)}</div>` : ''}
         </div>
         <div class="bar">
-          <input id="filter" type="search" placeholder="Search cards or sets" value="${esc(filter)}">
-          ${other ? '<button class="ghost" id="clear">Stop comparing</button>'
-                  : '<input id="cmp" type="url" placeholder="Compare with another In the Binder link"><button id="cmpgo">Compare</button>'}
+          <input id="filter" type="search" placeholder="${L.searchPh}" value="${esc(filter)}">
+          ${other ? `<button class="ghost" id="clear">${L.stopCompare}</button>`
+                  : '<input id="cmp" type="url" placeholder="${L.compareWith}"><button id="cmpgo">${L.compare}</button>'}
         </div>
         ${body}`;
       const fi = document.getElementById('filter');
@@ -214,9 +259,9 @@
       const go = document.getElementById('cmpgo');
       if (go) go.onclick = async () => {
         const p = S.parseShareLink(document.getElementById('cmp').value);
-        if (!p) { alert('That is not a In the Binder link.'); return; }
-        go.textContent = 'Loading…';
-        other = { title: p.title || 'Other collection', list: await enrich(p.rows) };
+        if (!p) { alert(L.notLink); return; }
+        go.textContent = L.loading;
+        other = { title: p.title || L.otherColl, list: await enrich(p.rows) };
         tab = 'both';
         draw();
       };

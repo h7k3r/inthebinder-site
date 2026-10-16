@@ -16,3 +16,5 @@
 - [Home](https://inthebinder.com/): features, screenshots, security and FAQ
 - [Privacy policy](https://inthebinder.com/privacy.html)
 - [Web version](https://inthebinder.com/app/): the collection on a computer or any phone
+- [Home (French)](https://inthebinder.com/fr/): French version of the home page
+- [Privacy policy (French)](https://inthebinder.com/fr/privacy.html)

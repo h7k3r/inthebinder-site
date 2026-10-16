@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In the Binder – Bêta</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  :root{--bg:#0d0322;--panel:#1a0838;--panel2:#24104a;--line:#3a1f66;--text:#f3ecff;--dim:#b9abd8;--pink:#ff5ad9;--cyan:#3fe6ff}
+  @font-face{font-family:"Syncopate";font-weight:700;font-display:swap;src:url(/fonts/Syncopate-Bold.woff2) format("woff2")}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(ellipse at 50% 0%,#26104a,var(--bg) 60%);color:var(--text);font:16px/1.5 system-ui,"Segoe UI",sans-serif;min-height:100vh}
+  main{max-width:560px;margin:0 auto;padding:40px 16px 60px}
+  h1,h2{font-family:"Syncopate","Segoe UI",sans-serif;text-transform:uppercase;letter-spacing:.04em;margin:0}
+  h1{font-size:1.5rem;color:var(--pink);text-shadow:0 0 14px rgba(255,90,217,.45)}
+  h2{font-size:.95rem;color:var(--cyan);margin-bottom:6px}
+  .lead{color:var(--dim);margin:8px 0 28px}
+  .box{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 14px 28px rgba(0,0,0,.5)}
+  .tag{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--cyan);margin-left:6px;vertical-align:middle}
+  p{color:var(--dim);margin:6px 0 14px}
+  .btn{display:block;width:100%;text-align:center;padding:14px;border-radius:999px;border:0;font:800 1rem system-ui,sans-serif;text-decoration:none;cursor:pointer;color:#2e1f05;background:linear-gradient(180deg,#f6de93,#d9a441 55%,#a8761f);box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 6px 14px rgba(0,0,0,.6)}
+  input{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#0a0218;color:var(--text);font:600 1.05rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+  ol{color:var(--dim);padding-left:20px;margin:14px 0 0}
+  .err{display:none;color:#ff8a8a;font-weight:700;margin:0 0 10px}
+  .foot{color:var(--dim);font-size:.85rem;text-align:center}
+  a{color:var(--pink)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Bêta In the Binder</h1>
+  <p class="lead">Merci de tester l'appli. Choisissez une méthode d'installation. Une seule suffit.</p>
+
+  <section class="box">
+    <h2>Google Play <span class="tag">Recommandé</span></h2>
+    <p>Deux appuis, sans e-mail. Aucun avertissement de sécurité, et les mises à jour arrivent toutes seules.</p>
+    <a class="btn" href="https://groups.google.com/g/inthebinder-beta" target="_blank" rel="noopener">1 · Rejoindre le groupe de testeurs</a>
+    <div style="height:10px"></div>
+    <a class="btn" href="https://play.google.com/apps/testing/com.inthebinder.app">2 · Obtenir l'appli sur Google Play</a>
+    <ol>
+      <li>Appuyez sur <b>1</b>, connectez-vous avec le compte Google de votre téléphone, puis appuyez sur <b>Rejoindre le groupe</b>.</li>
+      <li>Revenez et appuyez sur <b>2</b>, puis <b>Devenir testeur</b> et <b>Télécharger sur Google Play</b>.</li>
+      <li>Merci de garder l'appli installée pendant 14 jours et de l'ouvrir de temps en temps. C'est ce qui permet sa mise en ligne sur le Play Store pour tout le monde.</li>
+    </ol>
+    <p style="margin-top:14px"><b style="color:#f3ecff">Bloqué ?</b> « Application non disponible » signifie que l'étape 1 n'est pas terminée : rouvrez le lien 1 et vérifiez que vous avez bien appuyé sur <b>Rejoindre le groupe</b>. « Élément introuvable » signifie que votre Play Store est sur un autre compte Google (appuyez sur votre photo dans le Play Store pour changer) ou que Google a besoin de quelques minutes de plus. Patientez 15 minutes et réessayez le lien 2.</p>
+  </section>
+
+  <section class="box">
+    <h2>Téléchargement direct (APK)</h2>
+    <p>Pour les testeurs sans accès au Play Store. Saisissez le code personnel qui vous a été envoyé.</p>
+    <form action="/beta/apk" method="get">
+      <div class="err" id="err">Ce code n'a pas fonctionné. Vérifiez-le ou demandez-en un nouveau.</div>
+      <input name="code" placeholder="Votre code testeur" autocomplete="off" required>
+      <button class="btn" type="submit">Télécharger pour Android</button>
+    </form>
+    <ol>
+      <li>Quand Chrome le demande, appuyez sur <b>Télécharger quand même</b>. Cet avertissement apparaît pour toute appli hors du Play Store.</li>
+      <li>Ouvrez le fichier, puis autorisez <b>Installer des applis inconnues</b> pour Chrome si on vous le demande.</li>
+      <li>Appuyez sur <b>Installer</b>. Si Play Protect le demande, appuyez sur <b>Plus de détails → Installer quand même</b>.</li>
+    </ol>
+  </section>
+
+  <p class="foot"><a href="/fr/">inthebinder.com</a> · <a href="/fr/privacy.html">Confidentialité</a></p>
+</main>
+<script>if(/[?&]bad=1/.test(location.search))document.getElementById('err').style.display='block';</script>
+<p class="legal" style="max-width:900px;margin:32px auto 24px;padding:0 16px;text-align:center;font-size:12px;line-height:1.45;opacity:.7">In the Binder est une application indépendante. Elle n'est ni affiliée, ni approuvée, ni parrainée par Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast, Konami ou tout autre éditeur de cartes. Les noms de cartes, images et marques appartiennent à leurs propriétaires respectifs.</p>
+</body>
+</html>
