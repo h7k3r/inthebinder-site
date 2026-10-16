@@ -48,6 +48,7 @@
   if (FR) {
     const chrome = {
       '.note': "Cette collection est contenue dans le lien lui-même. Rien n'est stocké sur nos serveurs, et seules les personnes disposant du lien peuvent la voir. Les prix sont les prix du marché TCGplayer en dollars américains, lorsqu'ils sont disponibles.",
+      '.loading': 'Ouverture de la collection…',
       'footer': "In the Binder est une application indépendante, sans affiliation avec Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast ou Konami.",
     };
     for (const [sel, txt] of Object.entries(chrome)) { const el = document.querySelector(sel); if (el) el.textContent = txt; }
@@ -73,7 +74,12 @@
     shadowless: ['unlimited', 'normal'], shadowlessHolo: ['unlimitedHolofoil', 'holofoil'],
   };
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const money = (v) => { const n = Number(v); return Number.isFinite(n) ? '$' + (n >= 100 ? n.toFixed(0) : n.toFixed(2)) : ''; };
+  // $12.50 in English, 12,50 $ in French (a comma is the French decimal point).
+  const money = (v) => {
+    const n = Number(v); if (!Number.isFinite(n)) return '';
+    const s = n >= 100 ? n.toFixed(0) : n.toFixed(2);
+    return FR ? s.replace('.', ',') + '\u00a0$' : '$' + s;
+  };
 
   // Other games' ids carry the game: set 'op~3188', card 'op~712666' (the
   // TCGplayer product id). Their pictures come from TCGplayer's image server
@@ -246,12 +252,12 @@
           <div><strong>${t.cards.toLocaleString()}</strong>${L.cards}</div>
           <div><strong>${t.sets}</strong>${L.sets}</div>
           <div><strong>${t.value ? money(t.value) : '—'}</strong>${L.marketValue}</div>
-          ${other ? `<div><strong>${esc(other.title)}</strong>${totals(other.list).cards.toLocaleString()} cards · ${money(totals(other.list).value)}</div>` : ''}
+          ${other ? `<div><strong>${esc(other.title)}</strong>${totals(other.list).cards.toLocaleString()} ${L.cards} · ${money(totals(other.list).value)}</div>` : ''}
         </div>
         <div class="bar">
           <input id="filter" type="search" placeholder="${L.searchPh}" value="${esc(filter)}">
           ${other ? `<button class="ghost" id="clear">${L.stopCompare}</button>`
-                  : '<input id="cmp" type="url" placeholder="${L.compareWith}"><button id="cmpgo">${L.compare}</button>'}
+                  : `<input id="cmp" type="url" placeholder="${L.compareWith}"><button id="cmpgo">${L.compare}</button>`}
         </div>
         ${body}`;
       const fi = document.getElementById('filter');
