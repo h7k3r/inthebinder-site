@@ -53,8 +53,8 @@ HOME = [
      'content="In the Binder est une application gratuite de collection de cartes pour Android : Pokémon, One Piece, Disney Lorcana, Dragon Ball Super Fusion World, Magic: The Gathering et Yu-Gi-Oh!. Scannez vos cartes à la caméra, y compris les éditions japonaises, coréennes et chinoises de Pokémon, classez-les en classeurs par série, vérifiez le centrage pour la gradation PSA, suivez vos slabs et connaissez la valeur de votre collection. Fonctionne hors ligne."'),
     ('content="In the Binder: your card collection, in your pocket"',
      'content="In the Binder : votre collection de cartes, dans votre poche"'),
-    ('content="Scan cards, fill your binders set by set, and see what your collection is worth. Now in beta on Android."',
-     'content="Scannez vos cartes, remplissez vos classeurs série par série et découvrez la valeur de votre collection. Désormais en bêta sur Android."'),
+    ('content="Scan cards, fill your binders set by set, and see what your collection is worth. Free on Android, App Store coming soon."',
+     'content="Scannez vos cartes, remplissez vos classeurs série par série et découvrez la valeur de votre collection. Gratuit sur Android, bientôt sur l\'App Store."'),
     ('content="en_GB"', 'content="fr_FR"'),
     ('<link rel="canonical" href="https://inthebinder.com/">',
      '<link rel="canonical" href="https://inthebinder.com/fr/">'),
@@ -63,7 +63,18 @@ HOME = [
     ('<a href="#features">Features</a>', '<a href="#features">Fonctions</a>'),
     ('<a href="#security">Security</a>', '<a href="#security">Sécurité</a>'),
     ('<a href="/app/">Web version</a>', '<a href="/app/">Version web</a>'),
-    ('<a href="/beta/">Join the beta</a>', '<a href="/fr/beta/">Rejoindre la bêta</a>'),
+    ('<a class="nav-get" href="#get">Get the app</a>', '<a class="nav-get" href="#get">Obtenir l\'appli</a>'),
+    # mobile dock
+    ("<span>Screens</span>", "<span>Aperçu</span>"),
+    ("<span>Features</span>", "<span>Fonctions</span>"),
+    ("<span>Security</span>", "<span>Sécurité</span>"),
+    ("<span>Web app</span>", "<span>Appli web</span>"),
+    ('aria-label="Get the app"', 'aria-label="Obtenir l\'appli"'),
+    ('aria-label="Quick links"', 'aria-label="Accès rapide"'),
+    ('aria-label="Main"', 'aria-label="Menu principal"'),
+    # store buttons (hero + get band)
+    ("<small>Get it on</small>Google Play", "<small>Disponible sur</small>Google Play", 2),
+    ("<small>Coming soon to the</small>App Store", "<small>Bientôt sur l'</small>App Store", 2),
     # hero
     ('<div class="eyebrow">Trading card collection app</div>',
      '<div class="eyebrow">Application de collection de cartes</div>'),
@@ -71,18 +82,19 @@ HOME = [
      'Toute votre collection, <span class="holo">dans votre poche.</span>'),
     ("Point your camera at a card and In the Binder knows which one it is. It files the card into its set's binder and shows what it's worth. Page by page, you watch every set fill up.",
      "Pointez votre caméra sur une carte et In the Binder sait laquelle c'est. Il la classe dans le classeur de sa série et indique sa valeur. Page après page, vous regardez chaque série se remplir."),
-    ('<a class="btn primary" href="/beta/">Join the Android beta</a>',
-     '<a class="btn primary" href="/fr/beta/">Rejoindre la bêta Android</a>'),
     ('<a class="btn" href="/app/">Open on the web <span class="soon">NEW</span></a>',
      '<a class="btn" href="/app/">Ouvrir sur le web <span class="soon">NOUVEAU</span></a>'),
-    ('Android first, App Store to follow. On an iPhone or a computer? <a href="/app/" style="color:inherit;text-decoration:underline">Use the web version</a>, free, no install.',
-     "D'abord Android, l'App Store suivra. Sur iPhone ou ordinateur ? <a href=\"/app/\" style=\"color:inherit;text-decoration:underline\">Utilisez la version web</a>, gratuite, sans installation."),
+    ('On an iPhone or a computer? <a href="/app/" style="color:inherit;text-decoration:underline">Use the web version</a>, free, no install.',
+     "Sur iPhone ou ordinateur ? <a href=\"/app/\" style=\"color:inherit;text-decoration:underline\">Utilisez la version web</a>, gratuite, sans installation."),
     ('alt="In the Binder home screen showing the collector\'s sets with progress"',
      'alt="Écran d\'accueil d\'In the Binder montrant les séries du collectionneur et leur progression"'),
     # screens
     ("<h2>See it in action</h2>", "<h2>En images</h2>"),
-    ('<p class="sub">Real screens from the Android beta. Swipe for more.</p>',
-     '<p class="sub">De vraies captures de la bêta Android. Faites défiler pour en voir plus.</p>'),
+    ('<p class="sub">Real screens from the Android app. Swipe or tap the arrows.</p>',
+     '<p class="sub">De vraies captures de l\'appli Android. Faites glisser ou utilisez les flèches.</p>'),
+    ('aria-label="App screens"', 'aria-label="Captures de l\'appli"'),
+    ('aria-label="Previous screen"', 'aria-label="Capture précédente"'),
+    ('aria-label="Next screen"', 'aria-label="Capture suivante"'),
     ("<figcaption>Every set as a real binder</figcaption>",
      "<figcaption>Chaque série comme un vrai classeur</figcaption>"),
     ('alt="A set shown as binder pages, nine pockets a page"',
@@ -171,16 +183,15 @@ HOME = [
      "<h3>Fonctionne-t-il avec les cartes japonaises, coréennes et chinoises ?</h3>\n    <p>Oui. Le scanner et les classeurs prennent en charge les éditions anglaise, française, italienne, espagnole, allemande, japonaise, coréenne et chinoise.</p>"),
     ("<h3>Can it help me before sending cards to PSA?</h3>\n    <p>The centring check measures the borders of your card from a photo and compares them with the centring limits used by PSA, BGS and CGC. It is a guide only; the final grade is always the grading company's decision.</p>",
      "<h3>Peut-il m'aider avant d'envoyer mes cartes à PSA ?</h3>\n    <p>La vérification du centrage mesure les bords de votre carte à partir d'une photo et les compare aux limites de centrage utilisées par PSA, BGS et CGC. C'est une indication seulement ; la note finale reste toujours la décision de l'organisme de gradation.</p>"),
-    ("<h3>Is it available on iPhone?</h3>\n    <p>Not yet. In the Binder is in beta on Android through Google Play. An iPhone version is planned.</p>",
-     "<h3>Est-il disponible sur iPhone ?</h3>\n    <p>Pas encore. In the Binder est en bêta sur Android via Google Play. Une version iPhone est prévue.</p>"),
+    ("<h3>Is it available on iPhone?</h3>\n    <p>Not yet. In the Binder is on Android through Google Play, and the iPhone version is coming soon to the App Store. Until then, the web version works on any iPhone.</p>",
+     "<h3>Est-il disponible sur iPhone ?</h3>\n    <p>Pas encore. In the Binder est sur Android via Google Play, et la version iPhone arrive bientôt sur l'App Store. En attendant, la version web fonctionne sur tous les iPhone.</p>"),
     ("<h3>Does it need an internet connection?</h3>\n    <p>No. Your collection is stored on your phone and the app works offline. Prices update when you are online.</p>",
      "<h3>Faut-il une connexion internet ?</h3>\n    <p>Non. Votre collection est stockée sur votre téléphone et l'application fonctionne hors ligne. Les prix se mettent à jour quand vous êtes connecté.</p>"),
     # beta cta band
-    ("<h2>Be one of the first testers</h2>", "<h2>Soyez parmi les premiers testeurs</h2>"),
-    ("In the Binder is in its final testing on Android. It's free, it takes a minute to join, and your feedback shapes the launch.",
-     "In the Binder est en phase finale de test sur Android. C'est gratuit, il suffit d'une minute pour rejoindre, et vos retours façonnent le lancement."),
-    ('<a class="btn primary" href="/beta/">Join the beta</a>',
-     '<a class="btn primary" href="/fr/beta/">Rejoindre la bêta</a>'),
+    ("<h2>Get In the Binder</h2>", "<h2>Obtenez In the Binder</h2>"),
+    ("Free on Android through Google Play. The iPhone version is coming soon to the App Store, and the web version works on any device today.",
+     "Gratuit sur Android via Google Play. La version iPhone arrive bientôt sur l'App Store, et la version web fonctionne dès aujourd'hui sur tous les appareils."),
+    ('<a class="btn" href="/app/">Open on the web</a>', '<a class="btn" href="/app/">Ouvrir sur le web</a>'),
     # footer
     ('<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/privacy.html">Privacy</a></span>',
      '<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/fr/privacy.html">Confidentialité</a></span>'),
@@ -197,8 +208,8 @@ HOME = [
      '"name":"Fonctionne-t-il avec les cartes japonaises, coréennes et chinoises ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Le scanner et les classeurs prennent en charge les éditions anglaise, française, italienne, espagnole, allemande, japonaise, coréenne et chinoise."}'),
     ('"name":"Can it help me before sending cards to PSA?","acceptedAnswer":{"@type":"Answer","text":"The centring check measures the borders of your card from a photo and compares them with the centring limits used by PSA, BGS and CGC. It is a guide only; the final grade is always the grading company\'s decision."}',
      '"name":"Peut-il m\'aider avant d\'envoyer mes cartes à PSA ?","acceptedAnswer":{"@type":"Answer","text":"La vérification du centrage mesure les bords de votre carte à partir d\'une photo et les compare aux limites de centrage utilisées par PSA, BGS et CGC. C\'est une indication seulement ; la note finale reste toujours la décision de l\'organisme de gradation."}'),
-    ('"name":"Is it available on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Not yet. In the Binder is in beta on Android through Google Play. An iPhone version is planned."}',
-     '"name":"Est-il disponible sur iPhone ?","acceptedAnswer":{"@type":"Answer","text":"Pas encore. In the Binder est en bêta sur Android via Google Play. Une version iPhone est prévue."}'),
+    ('"name":"Is it available on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Not yet. In the Binder is on Android through Google Play, and the iPhone version is coming soon to the App Store. Until then, the web version works on any iPhone."}',
+     '"name":"Est-il disponible sur iPhone ?","acceptedAnswer":{"@type":"Answer","text":"Pas encore. In the Binder est sur Android via Google Play, et la version iPhone arrive bientôt sur l\'App Store. En attendant, la version web fonctionne sur tous les iPhone."}'),
     ('"name":"Does it need an internet connection?","acceptedAnswer":{"@type":"Answer","text":"No. Your collection is stored on your phone and the app works offline. Prices update when you are online."}',
      '"name":"Faut-il une connexion internet ?","acceptedAnswer":{"@type":"Answer","text":"Non. Votre collection est stockée sur votre téléphone et l\'application fonctionne hors ligne. Les prix se mettent à jour quand vous êtes connecté."}'),
     ('"description":"Scan trading cards with your camera (Pokémon, One Piece, Disney Lorcana, Dragon Ball Super Fusion World, Magic: The Gathering and Yu-Gi-Oh!), file them into binders by set, track graded slabs and see what your collection is worth. Works offline."',
@@ -268,8 +279,7 @@ LANGJS = (
     "if(onFr||s)return;var L=(navigator.languages||[navigator.language||'']).join(',').toLowerCase();"
     "if(/(^|,)fr(-[a-z]+)?(,|$)/.test(L)){location.replace((p==='/'?'/fr/':'/fr'+p)+location.search+location.hash)}}catch(e){}})();</script>"
 )
-NAV_SW = ('<a href="%s" class="lang-switch" data-lang="%s" aria-label="%s" '
-          'style="color:var(--dim);text-decoration:none;margin-left:18px;font-size:.95rem">%s</a>')
+NAV_SW = '<a href="%s" class="lang-switch" data-lang="%s" aria-label="%s">%s</a>'
 ROW_SW = ('<div class="lang-row" style="text-align:right;font-size:.9rem;margin-bottom:-10px">'
           '<a href="%s" class="lang-switch" data-lang="%s" aria-label="%s" style="color:var(--dim)">%s</a></div>')
 
@@ -303,13 +313,13 @@ def one_switch(name, html):
 def build_home():
     src = clean((ROOT / "index.html").read_text(encoding="utf-8"))
     fr = apply_pairs(src, HOME, "home")
-    fr = fr.replace('<nav>\n      <a href="#screens">',
-                    '<nav>\n      ' + NAV_SW % ("/", "en", "English version", "EN") + '<a href="#screens">', 1)
+    fr = fr.replace('<a href="/app/">Version web</a>',
+                    '<a href="/app/">Version web</a>' + NAV_SW % ("/", "en", "English version", "EN"), 1)
     (ROOT / "fr" / "index.html").write_text(one_switch("fr/index.html", with_js(fr)), encoding="utf-8")
 
     en = add_hreflang(src, "/", "/fr/")
-    en = en.replace('<a href="/beta/">Join the beta</a>',
-                    '<a href="/beta/">Join the beta</a>' + NAV_SW % ("/fr/", "fr", "Version française", "FR"), 1)
+    en = en.replace('<a href="/app/">Web version</a>',
+                    '<a href="/app/">Web version</a>' + NAV_SW % ("/fr/", "fr", "Version française", "FR"), 1)
     (ROOT / "index.html").write_text(one_switch("index.html", with_js(en)), encoding="utf-8")
 
 
@@ -335,7 +345,7 @@ def build_beta():
 
 
 def build_sitemap():
-    today = "2026-10-16"
+    today = "2026-10-18"
     locs = [
         ("/", today), ("/fr/", today),
         ("/privacy.html", today), ("/fr/privacy.html", today),
