@@ -192,6 +192,13 @@ HOME = [
     ("Free on Android through Google Play. The iPhone version is coming soon to the App Store, and the web version works on any device today.",
      "Gratuit sur Android via Google Play. La version iPhone arrive bientôt sur l'App Store, et la version web fonctionne dès aujourd'hui sur tous les appareils."),
     ('<a class="btn" href="/app/">Open on the web</a>', '<a class="btn" href="/app/">Ouvrir sur le web</a>'),
+    # feature pictures
+    ('alt="A card framed by measurement guides along its four borders"', 'alt="Une carte encadrée de repères de mesure sur ses quatre bords"'),
+    ('alt="A graded slab tapped against the back of a phone"', 'alt="Un slab gradé posé contre le dos d\'un téléphone"'),
+    ('alt="Six trading cards fanned out, one per game"', 'alt="Six cartes en éventail, une par jeu"'),
+    ('alt="A shelf of binders with a coloured tab for each language"', 'alt="Une étagère de classeurs avec un onglet de couleur par langue"'),
+    ('alt="A laptop showing a grid of cards and a price chart"', 'alt="Un ordinateur portable affichant une grille de cartes et une courbe de prix"'),
+    ('alt="Cards moving from a storage box into a binder"', 'alt="Des cartes passant d\'une boîte de rangement à un classeur"'),
     # footer
     ('<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/privacy.html">Privacy</a></span>',
      '<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/fr/privacy.html">Confidentialité</a></span>'),
