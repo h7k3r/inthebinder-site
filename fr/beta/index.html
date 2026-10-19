@@ -26,6 +26,8 @@
   .err{display:none;color:#ff8a8a;font-weight:700;margin:0 0 10px}
   .foot{color:var(--dim);font-size:.85rem;text-align:center}
   a{color:var(--pink)}
+  .btn-wait{opacity:.55;cursor:default;filter:saturate(.6)}
+  .wait-note{font-size:.9rem;margin:10px 0 0}
   .jump{margin:-18px 0 22px;font-weight:700}
   section{scroll-margin-top:16px}
 </style>
@@ -43,7 +45,8 @@
     <p>L'appli de test d'Apple. Gratuite, sans code, et les nouvelles versions arrivent toutes seules.</p>
     <a class="btn" href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener">1 · Installer TestFlight depuis l'App Store</a>
     <div style="height:10px"></div>
-    <a class="btn" href="https://testflight.apple.com/join/TESTFLIGHT_CODE" target="_blank" rel="noopener">2 · Rejoindre la bêta In the Binder</a>
+    <span class="btn btn-wait" aria-disabled="true">2 · Bientôt ouverte : Apple vérifie la bêta</span>
+    <p class="wait-note">Apple vérifie chaque nouvelle bêta, généralement en moins d'un jour. Vous voulez être prévenu à l'ouverture ? Écrivez à <a href="mailto:support@inthebinder.com?subject=B%C3%AAta%20iPhone">support@inthebinder.com</a>.</p>
     <ol>
       <li>Sur votre iPhone, appuyez sur <b>1</b> et installez TestFlight. Passez cette étape si vous l'avez déjà.</li>
       <li>Revenez et appuyez sur <b>2</b>, puis sur <b>Accepter</b> et <b>Installer</b> dans TestFlight.</li>

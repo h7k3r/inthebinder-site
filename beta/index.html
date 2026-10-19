@@ -26,6 +26,8 @@
   .err{display:none;color:#ff8a8a;font-weight:700;margin:0 0 10px}
   .foot{color:var(--dim);font-size:.85rem;text-align:center}
   a{color:var(--pink)}
+  .btn-wait{opacity:.55;cursor:default;filter:saturate(.6)}
+  .wait-note{font-size:.9rem;margin:10px 0 0}
   .jump{margin:-18px 0 22px;font-weight:700}
   section{scroll-margin-top:16px}
 </style>
@@ -43,7 +45,8 @@
     <p>Apple's own app for testing. Free, no code needed, and new versions arrive by themselves.</p>
     <a class="btn" href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener">1 · Get TestFlight from the App Store</a>
     <div style="height:10px"></div>
-    <a class="btn" href="https://testflight.apple.com/join/TESTFLIGHT_CODE" target="_blank" rel="noopener">2 · Join the In the Binder beta</a>
+    <span class="btn btn-wait" aria-disabled="true">2 · Opening soon: Apple is checking the beta</span>
+    <p class="wait-note">Apple reviews every new beta, usually within a day. Want a message when it opens? Email <a href="mailto:support@inthebinder.com?subject=iPhone%20beta">support@inthebinder.com</a>.</p>
     <ol>
       <li>Tap <b>1</b> on your iPhone and install TestFlight. Skip this if you already have it.</li>
       <li>Come back and tap <b>2</b>, then <b>Accept</b> and <b>Install</b> in TestFlight.</li>
