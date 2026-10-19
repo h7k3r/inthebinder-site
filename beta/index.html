@@ -26,6 +26,8 @@
   .err{display:none;color:#ff8a8a;font-weight:700;margin:0 0 10px}
   .foot{color:var(--dim);font-size:.85rem;text-align:center}
   a{color:var(--pink)}
+  .jump{margin:-18px 0 22px;font-weight:700}
+  section{scroll-margin-top:16px}
 </style>
 <script>(function(){try{var K='h7k_lang',p=location.pathname,onFr=/^\/fr(\/|$)/.test(p),s=null;try{s=localStorage.getItem(K)}catch(e){}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a){try{localStorage.setItem(K,a.getAttribute('data-lang'))}catch(e){}}});if(onFr||s)return;var L=(navigator.languages||[navigator.language||'']).join(',').toLowerCase();if(/(^|,)fr(-[a-z]+)?(,|$)/.test(L)){location.replace((p==='/'?'/fr/':'/fr'+p)+location.search+location.hash)}}catch(e){}})();</script>
 </head>
@@ -33,10 +35,25 @@
 <main>
 <div class="lang-row" style="text-align:right;font-size:.9rem;margin-bottom:-10px"><a href="/fr/beta/" class="lang-switch" data-lang="fr" aria-label="Version française" style="color:var(--dim)">FR</a></div>
   <h1>In the Binder beta</h1>
-  <p class="lead">Thanks for testing. Pick one way to install. You only need one.</p>
+  <p class="lead">Thanks for testing. Go to the section for your phone. On Android you only need one of the two ways.</p>
+  <p class="jump"><a href="#iphone">iPhone</a> · <a href="#android">Android</a></p>
 
-  <section class="box">
-    <h2>Google Play <span class="tag">Recommended</span></h2>
+  <section class="box" id="iphone">
+    <h2>iPhone · TestFlight</h2>
+    <p>Apple's own app for testing. Free, no code needed, and new versions arrive by themselves.</p>
+    <a class="btn" href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener">1 · Get TestFlight from the App Store</a>
+    <div style="height:10px"></div>
+    <a class="btn" href="https://testflight.apple.com/join/TESTFLIGHT_CODE" target="_blank" rel="noopener">2 · Join the In the Binder beta</a>
+    <ol>
+      <li>Tap <b>1</b> on your iPhone and install TestFlight. Skip this if you already have it.</li>
+      <li>Come back and tap <b>2</b>, then <b>Accept</b> and <b>Install</b> in TestFlight.</li>
+      <li>Open In the Binder from your home screen. New test versions show up in TestFlight; turn on <b>Automatic Updates</b> there.</li>
+    </ol>
+    <p style="margin-top:14px"><b style="color:#f3ecff">Stuck?</b> Open link 2 on the iPhone itself, not on a computer. If TestFlight says the beta is full or not accepting testers, email <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> and we'll let you in.</p>
+  </section>
+
+  <section class="box" id="android">
+    <h2>Android · Google Play <span class="tag">Recommended</span></h2>
     <p>Two taps, no email needed. No security warnings, and updates arrive by themselves.</p>
     <a class="btn" href="https://groups.google.com/g/inthebinder-beta" target="_blank" rel="noopener">1 · Join the tester group</a>
     <div style="height:10px"></div>
@@ -50,7 +67,7 @@
   </section>
 
   <section class="box">
-    <h2>Direct download (APK)</h2>
+    <h2>Android · Direct download (APK)</h2>
     <p>For testers without Play access. Enter the personal code you were sent.</p>
     <form action="/beta/apk" method="get">
       <div class="err" id="err">That code didn't work. Check it, or ask for a new one.</div>
