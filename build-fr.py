@@ -205,8 +205,8 @@ HOME = [
     # footer
     ('<nav class="social" aria-label="Follow us"><span class="lbl">Follow us</span>', '<nav class="social" aria-label="Suivez-nous"><span class="lbl">Suivez-nous</span>'),
     ('aria-label="In the Binder on ', 'aria-label="In the Binder sur '),
-    ('<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/privacy.html">Privacy</a></span>',
-     '<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/fr/privacy.html">Confidentialité</a></span>'),
+    ('<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/privacy.html">Privacy</a> · <a href="/press/">Press kit</a></span>',
+     '<span>© 2026 In the Binder · <a href="mailto:support@inthebinder.com">support@inthebinder.com</a> · <a href="/fr/privacy.html">Confidentialité</a> · <a href="/press/">Kit presse</a></span>'),
     ("In the Binder is an independent app and is not affiliated with, endorsed or sponsored by Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast, Konami or any other card publisher. All card names, images and trademarks belong to their respective owners. In the Binder may earn a commission from purchases made through its links to marketplaces.",
      "In the Binder est une application indépendante, sans affiliation, approbation ou parrainage de Nintendo, Creatures Inc., GAME FREAK inc., The Pokémon Company, Bandai, Disney, Ravensburger, Wizards of the Coast, Konami ou tout autre éditeur de cartes. Tous les noms de cartes, images et marques appartiennent à leurs propriétaires respectifs. In the Binder peut percevoir une commission sur les achats effectués via ses liens vers des places de marché."),
     # structured data (FAQ + app listing Google reads) — must match the visible French text
